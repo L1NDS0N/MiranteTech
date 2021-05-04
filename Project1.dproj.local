@@ -2,8 +2,8 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2021/05/03 14:42:08.000.089,=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2021/05/03 14:43:25.000.347,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Unit1.pas</Transaction>
-    <Transaction>2021/05/03 14:43:25.000.347,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Unit1.dfm</Transaction>
-    <Transaction>2021/05/03 14:43:28.000.321,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Project1.dproj</Transaction>
+    <Transaction>2021/05/03 14:43:25.000.347,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Unit1.dfm=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/05/03 14:43:25.000.347,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Unit1.pas=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/03 14:43:28.000.321,C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Rich2\Project1.dproj=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
   </Transactions>
 </BorlandProject>

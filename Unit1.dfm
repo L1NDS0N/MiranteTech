@@ -14,11 +14,16 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 333
-    Top = 1
-    Width = 417
-    Height = 41
-    Color = clWhite
+    Left = 0
+    Top = 0
+    Width = 1084
+    Height = 42
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 0
+    Align = alTop
+    BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 0
     object Button1: TButton
@@ -26,7 +31,7 @@ object Form1: TForm1
       Left = 292
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = 'Link'
       TabOrder = 0
@@ -36,7 +41,7 @@ object Form1: TForm1
       Left = 340
       Top = 4
       Width = 69
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = 'Par'#225'grafo'
       TabOrder = 1
@@ -46,7 +51,7 @@ object Form1: TForm1
       Left = 196
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = '<>'
       TabOrder = 2
@@ -56,7 +61,7 @@ object Form1: TForm1
       Left = 244
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = '->'
       TabOrder = 3
@@ -66,7 +71,7 @@ object Form1: TForm1
       Left = 148
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = '<-'
       TabOrder = 4
@@ -76,7 +81,7 @@ object Form1: TForm1
       Left = 100
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = 'U'
       TabOrder = 5
@@ -86,7 +91,7 @@ object Form1: TForm1
       Left = 52
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = 'B'
       TabOrder = 6
@@ -96,22 +101,43 @@ object Form1: TForm1
       Left = 4
       Top = 4
       Width = 42
-      Height = 33
+      Height = 34
       Align = alLeft
       Caption = 'I'
       TabOrder = 7
       OnClick = Button8Click
     end
   end
-  object Memo1: TMemo
-    AlignWithMargins = True
-    Left = 3
-    Top = 44
-    Width = 1078
-    Height = 775
+  object RichEdit1: TRichEdit
+    Left = 0
+    Top = 43
+    Width = 1084
+    Height = 760
+    Cursor = crIBeam
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 1
     Align = alBottom
     BorderStyle = bsNone
-    ScrollBars = ssBoth
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
+    Zoom = 100
+    OnEnter = RichEdit1Enter
+    OnSelectionChange = RichEdit1SelectionChange
+  end
+  object FooterStatusBar: TPanel
+    Left = 0
+    Top = 803
+    Width = 1084
+    Height = 19
+    Align = alBottom
+    Alignment = taRightJustify
+    TabOrder = 2
   end
 end
