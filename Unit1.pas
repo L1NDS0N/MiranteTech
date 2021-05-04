@@ -126,7 +126,7 @@ selectedText := RichEdit1.SelText;
 
 foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
 
-//ShowMessage('Posição selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
+//ShowMessage('Posiï¿½ï¿½o selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
 
 if foundPos <> -1 then
     begin
@@ -153,7 +153,7 @@ var
 selectedText: string;
 begin
   selectedText:= IntToStr(Length(RichEdit1.SelText));
-  FooterStatusBar.Caption := ('Seleção: '+selectedText);
+  FooterStatusBar.Caption := ('Seleï¿½ï¿½o: '+selectedText);
 end;
 
 end.
