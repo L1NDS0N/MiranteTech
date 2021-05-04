@@ -36,7 +36,6 @@ object Form1: TForm1
       Caption = 'Par'#225'grafo'
       TabOrder = 0
       OnClick = Button2Click
-      ExplicitLeft = 340
     end
     object Button3: TButton
       AlignWithMargins = True
@@ -126,7 +125,7 @@ object Form1: TForm1
     TabOrder = 1
     WantTabs = True
     Zoom = 100
-    OnEnter = RichEdit1Enter
+    OnChange = RichEdit1Change
     OnSelectionChange = RichEdit1SelectionChange
   end
   object FooterStatusBar: TPanel

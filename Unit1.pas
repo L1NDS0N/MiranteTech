@@ -1,4 +1,4 @@
-unit Unit1;
+﻿unit Unit1;
 
 interface
 
@@ -20,7 +20,6 @@ type
     RichEdit1: TRichEdit;
     FooterStatusBar: TPanel;
     procedure Button8Click(Sender: TObject);
-    procedure RichEdit1Enter(Sender: TObject);
     procedure RichEdit1SelectionChange(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
@@ -28,6 +27,7 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure RichEdit1Change(Sender: TObject);
 
 
   private
@@ -118,7 +118,7 @@ procedure TForm1.Button8Click(Sender: TObject);
 
 var
 selectedText: string;
-foundPos, posIni: Integer;
+foundPos: Integer;
 
 
 begin
@@ -137,8 +137,9 @@ if foundPos <> -1 then
     end;
 end;
 
-procedure TForm1.RichEdit1Enter(Sender: TObject);
+procedure TForm1.RichEdit1Change(Sender: TObject);
 begin
+  FooterStatusBar.Caption := (FooterStatusBar.Caption+(' - Caracteres: '+IntToStr(Length(RichEdit1.Text))));
 //  RichEdit1.SelStart  := 0;
 //  RichEdit1.SelLength := length(RichEdit1.Text);
 //  RichEdit1.SelAttributes.color := clBlack;
@@ -153,7 +154,7 @@ var
 selectedText: string;
 begin
   selectedText:= IntToStr(Length(RichEdit1.SelText));
-  FooterStatusBar.Caption := ('Sele��o: '+selectedText);
+  FooterStatusBar.Caption := ('Seleção: '+selectedText+' - início da seleção: '+IntToStr(RichEdit1.SelStart));
 end;
 
 end.
