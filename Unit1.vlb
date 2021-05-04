@@ -10,10 +10,6 @@ Coordinates=144,10,59,58
 [Button7]
 Coordinates=217,78,59,58
 
-[Button1]
-Coordinates=75,10,59,58
-Visible=True
-
 [Button2]
 Coordinates=10,146,59,58
 
@@ -27,5 +23,6 @@ Coordinates=79,78,59,58
 Coordinates=213,10,59,58
 
 []
-Coordinates=272,78,91,36
+Coordinates=75,10,59,58
+Visible=True
 

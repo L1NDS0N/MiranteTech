@@ -26,25 +26,17 @@ object Form1: TForm1
     BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 0
-    object Button1: TButton
-      AlignWithMargins = True
-      Left = 292
-      Top = 4
-      Width = 42
-      Height = 34
-      Align = alLeft
-      Caption = 'Link'
-      TabOrder = 0
-    end
     object Button2: TButton
       AlignWithMargins = True
-      Left = 340
+      Left = 292
       Top = 4
       Width = 69
       Height = 34
       Align = alLeft
       Caption = 'Par'#225'grafo'
-      TabOrder = 1
+      TabOrder = 0
+      OnClick = Button2Click
+      ExplicitLeft = 340
     end
     object Button3: TButton
       AlignWithMargins = True
@@ -54,7 +46,8 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = '<>'
-      TabOrder = 2
+      TabOrder = 1
+      OnClick = Button3Click
     end
     object Button4: TButton
       AlignWithMargins = True
@@ -64,7 +57,8 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = '->'
-      TabOrder = 3
+      TabOrder = 2
+      OnClick = Button4Click
     end
     object Button5: TButton
       AlignWithMargins = True
@@ -74,7 +68,8 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = '<-'
-      TabOrder = 4
+      TabOrder = 3
+      OnClick = Button5Click
     end
     object Button6: TButton
       AlignWithMargins = True
@@ -84,7 +79,8 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = 'U'
-      TabOrder = 5
+      TabOrder = 4
+      OnClick = Button6Click
     end
     object Button7: TButton
       AlignWithMargins = True
@@ -94,7 +90,8 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = 'B'
-      TabOrder = 6
+      TabOrder = 5
+      OnClick = Button7Click
     end
     object Button8: TButton
       AlignWithMargins = True
@@ -104,7 +101,7 @@ object Form1: TForm1
       Height = 34
       Align = alLeft
       Caption = 'I'
-      TabOrder = 7
+      TabOrder = 6
       OnClick = Button8Click
     end
   end
@@ -127,6 +124,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 1
+    WantTabs = True
     Zoom = 100
     OnEnter = RichEdit1Enter
     OnSelectionChange = RichEdit1SelectionChange

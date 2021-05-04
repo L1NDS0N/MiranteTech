@@ -10,7 +10,6 @@ uses
 type
   TForm1 = class(TForm)
     Panel1: TPanel;
-    Button1: TButton;
     Button2: TButton;
     Button3: TButton;
     Button4: TButton;
@@ -23,6 +22,12 @@ type
     procedure Button8Click(Sender: TObject);
     procedure RichEdit1Enter(Sender: TObject);
     procedure RichEdit1SelectionChange(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
 
 
   private
@@ -41,6 +46,74 @@ implementation
 
 
 
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+if RichEdit1.Paragraph.FirstIndent <> 10 then
+begin
+    RichEdit1.Paragraph.FirstIndent := 10;
+    RichEdit1.SetFocus;
+end else
+  begin
+    RichEdit1.Paragraph.FirstIndent := 0;
+  end;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  RichEdit1.Paragraph.Alignment := taCenter;
+  RichEdit1.SetFocus;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  RichEdit1.Paragraph.Alignment := taRightJustify;
+  RichEdit1.SetFocus;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+begin
+    RichEdit1.Paragraph.Alignment := taLeftJustify;
+    RichEdit1.SetFocus;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var
+selectedText: string;
+foundPos: Integer;
+
+begin
+selectedText := RichEdit1.SelText;
+
+foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
+
+if foundPos <> -1 then
+    begin
+        RichEdit1.SelStart  := foundPos;
+        RichEdit1.SelLength := Length(selectedText);
+        RichEdit1.SelAttributes.style := ( RichEdit1.SelAttributes.Style +[fsUnderline]);
+        RichEdit1.SetFocus;
+    end;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+var
+selectedText: string;
+foundPos: Integer;
+
+begin
+selectedText := RichEdit1.SelText;
+
+foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
+
+if foundPos <> -1 then
+    begin
+        RichEdit1.SelStart  := foundPos;
+        RichEdit1.SelLength := Length(selectedText);
+        RichEdit1.SelAttributes.style := (RichEdit1.SelAttributes.Style + [fsBold]);
+        RichEdit1.SetFocus;
+    end;
+end;
+
 procedure TForm1.Button8Click(Sender: TObject);
 
 var
@@ -50,9 +123,8 @@ foundPos, posIni: Integer;
 
 begin
 selectedText := RichEdit1.SelText;
-posIni := 0;
 
-foundPos := RichEdit1.FindText(selectedText, posIni, Length(RichEdit1.Text), []);
+foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
 
 //ShowMessage('Posição selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
 
@@ -60,10 +132,9 @@ if foundPos <> -1 then
     begin
         RichEdit1.SelStart  := foundPos;
         RichEdit1.SelLength := Length(selectedText);
-        RichEdit1.SelAttributes.style := [fsItalic];
+        RichEdit1.SelAttributes.style := (RichEdit1.SelAttributes.Style + [fsItalic]);
         RichEdit1.SetFocus;
     end;
-
 end;
 
 procedure TForm1.RichEdit1Enter(Sender: TObject);
