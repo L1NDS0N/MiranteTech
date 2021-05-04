@@ -120,13 +120,17 @@ var
 selectedText: string;
 foundPos: Integer;
 
-
 begin
 selectedText := RichEdit1.SelText;
-
 foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
 
-//ShowMessage('Posição selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
+// Precisa fazer a validação para remover a propriedade do SelAttributes.Style
+if RichEdit1.SelAttributes.Style = [fsItalic] then
+begin
+  ShowMessage('Its Italic!!!');
+  RichEdit1.SelAttributes.style := (RichEdit1.SelAttributes.Style - [fsItalic]);
+end;
+
 
 if foundPos <> -1 then
     begin

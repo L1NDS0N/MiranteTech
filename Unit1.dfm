@@ -18,11 +18,8 @@ object Form1: TForm1
     Top = 0
     Width = 1084
     Height = 42
-    Margins.Left = 0
-    Margins.Top = 0
-    Margins.Right = 0
-    Margins.Bottom = 0
     Align = alTop
+    Alignment = taLeftJustify
     BevelOuter = bvLowered
     ParentBackground = False
     TabOrder = 0
