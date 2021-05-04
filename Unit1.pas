@@ -126,7 +126,7 @@ selectedText := RichEdit1.SelText;
 
 foundPos := RichEdit1.FindText(selectedText, 0, Length(RichEdit1.Text), []);
 
-//ShowMessage('Posi��o selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
+//ShowMessage('Posição selecionada: '+ IntToStr(foundPos)+ 'Tamanho total: '+IntToStr(RichEdit1.SelLength));
 
 if foundPos <> -1 then
     begin
@@ -139,7 +139,6 @@ end;
 
 procedure TForm1.RichEdit1Change(Sender: TObject);
 begin
-  FooterStatusBar.Caption := (FooterStatusBar.Caption+(' - Caracteres: '+IntToStr(Length(RichEdit1.Text))));
 //  RichEdit1.SelStart  := 0;
 //  RichEdit1.SelLength := length(RichEdit1.Text);
 //  RichEdit1.SelAttributes.color := clBlack;
@@ -155,8 +154,13 @@ selectedText: string;
 begin
   selectedText:= IntToStr(Length(RichEdit1.SelText));
   FooterStatusBar.Caption := ('Seleção: '+selectedText+' - início da seleção: '+IntToStr(RichEdit1.SelStart));
-end;
 
+if StrToInt(selectedText) = Length(RichEdit1.Text) then
+  begin
+    FooterStatusBar.Caption := (FooterStatusBar.Caption+(' - Caracteres: '+IntToStr(Length(RichEdit1.Text))));
+  end;
+
+end;
 end.
 
 
