@@ -4,13 +4,12 @@ interface
 
 uses
   System.SysUtils, System.Classes, uDWDatamodule, uDWAbout, uRESTDWServerEvents,
-  uDWJSONObject;
+  uDWJSONObject, System.Json;
 
 type
   TDataModule2 = class(TServerMethodDataModule)
     DWServerEvents1: TDWServerEvents;
-    procedure DWServerEvents1EventstesteReplyEvent(var Params: TDWParams;
-      var Result: string);
+    procedure DWServerEvents1EventstesteReplyEvent(var Params: TDWParams; var Result: string);
   private
     { Private declarations }
   public
@@ -26,10 +25,21 @@ implementation
 
 {$R *.dfm}
 
-procedure TDataModule2.DWServerEvents1EventstesteReplyEvent(
-  var Params: TDWParams; var Result: string);
+procedure TDataModule2.DWServerEvents1EventstesteReplyEvent(var Params: TDWParams; var Result: string);
+var
+  Json: TJsonObject;
 begin
- Params.ItemsString['result'].AsString := 'Lindson França';
+  Json := TJSONObject.Create;
+  try
+    Json.AddPair('Nome', 'Lindson França');
+    Json.AddPair('Nome', 'Lindson França');
+    Json.AddPair('Nome', 'Lindson França');
+    Result := Json.ToJSON;
+  finally
+    FreeAndNil(Json);
+  end;
+
 end;
 
 end.
+

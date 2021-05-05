@@ -3,8 +3,9 @@ unit U_EventsServer;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDWAbout, uRESTDWBase, Vcl.StdCtrls;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uDWAbout,
+  uRESTDWBase, Vcl.StdCtrls;
 
 type
   TForm1 = class(TForm)
@@ -35,3 +36,4 @@ begin
 end;
 
 end.
+

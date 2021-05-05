@@ -1,5 +1,6 @@
 object DataModule2: TDataModule2
   OldCreateOrder = False
+  Encoding = esUtf8
   Height = 254
   Width = 653
   object DWServerEvents1: TDWServerEvents
@@ -16,7 +17,7 @@ object DataModule2: TDataModule2
             ParamName = 'result'
             Encoded = False
           end>
-        JsonMode = jmDataware
+        JsonMode = jmPureJSON
         Name = 'teste'
         EventName = 'teste'
         OnlyPreDefinedParams = False
