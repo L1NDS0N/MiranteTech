@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/05/05 14:07:29.000.861,=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/05 14:10:05.000.824,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\U_EventsServer.pas=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/05/05 14:10:05.000.824,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\U_EventsServer.dfm=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/05/05 14:10:24.000.978,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\EventsServerRDW.dproj=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2021/05/05 14:16:45.000.087,=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.pas</Transaction>
+    <Transaction>2021/05/05 15:00:27.000.979,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.pas=</Transaction>
+    <Transaction>2021/05/05 15:02:07.950,=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.pas</Transaction>
+    <Transaction>2021/05/05 15:02:22.371,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.pas=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.pas</Transaction>
+    <Transaction>2021/05/05 15:02:22.371,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.dfm=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
