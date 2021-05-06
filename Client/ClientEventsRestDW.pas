@@ -19,11 +19,16 @@ type
     DataSource1: TDataSource;
     btInserir: TButton;
     brAtualizar: TButton;
+    btDelete: TButton;
     procedure btBuscarClick(Sender: TObject);
     procedure btInserirClick(Sender: TObject);
     procedure brAtualizarClick(Sender: TObject);
+    procedure btDeleteClick(Sender: TObject);
+    procedure RESTDWClientSQL1AfterDelete(DataSet: TDataSet);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
+    procedure ApplyUpdate(aDataSet: TDataSet);
   public
     { Public declarations }
   end;
@@ -35,15 +40,19 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm2.brAtualizarClick(Sender: TObject);
+procedure TForm2.ApplyUpdate(aDataSet: TDataSet);
 var
-  vError: string;
+vError: string;
+begin
+  if not RESTDWClientSQL1.ApplyUpdates(vError) then
+    raise Exception.Create(vError);
+end;
+
+procedure TForm2.brAtualizarClick(Sender: TObject);
 begin
   RESTDWClientSQL1.Edit;
   RESTDWClientSQL1.FieldByName('ID').AsString := '200';
   RESTDWClientSQL1.Post;
-  if not RESTDWClientSQL1.ApplyUpdates(vError) then
-    raise Exception.Create('Error Message');
 
 end;
 
@@ -55,6 +64,11 @@ begin
   RESTDWClientSQL1.Open;
 end;
 
+procedure TForm2.btDeleteClick(Sender: TObject);
+begin
+  RESTDWClientSQL1.Delete;
+end;
+
 procedure TForm2.btInserirClick(Sender: TObject);
 var
   vError: string;
@@ -63,8 +77,6 @@ begin
 //  RESTDWClientSQL1.Append;
 //  RESTDWClientSQL1.FieldByName('ID').AsString := '32165';
 //  RESTDWClientSQL1.Post;
-//  if not RESTDWClientSQL1.ApplyUpdates(vError) then
-//    raise Exception.Create('Error Message');
 // Utilizando queries SQL:
   RESTDWClientSQL1.SQL.Clear;
   RESTDWClientSQL1.SQL.Add('INSERT INTO NOME (ID, POSICAO, MENINO_W ) VALUES (:ID, :POSICAO, :MENINO_W)');
@@ -77,5 +89,18 @@ begin
     raise Exception.Create(vError);
 end;
 
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  RESTDWClientSQL1.AfterPost := ApplyUpdate;
+    RESTDWClientSQL1.AfterDelete := ApplyUpdate;
+end;
+
+procedure TForm2.RESTDWClientSQL1AfterDelete(DataSet: TDataSet);
+var
+  vError: string;
+begin
+  if not RESTDWClientSQL1.ApplyUpdates(vError) then
+    raise Exception.Create(vError);
+end;
 end.
 

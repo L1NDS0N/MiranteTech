@@ -11,6 +11,7 @@ object Form2: TForm2
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -53,6 +54,15 @@ object Form2: TForm2
     TabOrder = 3
     OnClick = brAtualizarClick
   end
+  object btDelete: TButton
+    Left = 274
+    Top = 487
+    Width = 75
+    Height = 25
+    Caption = 'Deletar'
+    TabOrder = 4
+    OnClick = btDeleteClick
+  end
   object RESTDWDataBase1: TRESTDWDataBase
     Active = False
     Compression = True
@@ -94,6 +104,7 @@ object Form2: TForm2
   end
   object RESTDWClientSQL1: TRESTDWClientSQL
     Active = False
+    AfterDelete = RESTDWClientSQL1AfterDelete
     Filtered = False
     FieldDefs = <>
     IndexDefs = <>
