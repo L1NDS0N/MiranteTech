@@ -7,12 +7,17 @@ uses
   uDWJSONObject, System.Json, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
-  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client;
+  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  uRESTDWPoolerDB, uRestDWDriverFD, FireDAC.Phys.IBBase, FireDAC.Comp.UI;
 
 type
   TDataModule2 = class(TServerMethodDataModule)
     DWServerEvents1: TDWServerEvents;
     con1: TFDConnection;
+    RESTDWPoolerDB1: TRESTDWPoolerDB;
+    RESTDWDriverFD1: TRESTDWDriverFD;
+    FDPhysFBDriverLink1: TFDPhysFBDriverLink;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
     procedure DWServerEvents1EventstesteReplyEvent(var Params: TDWParams; var Result: string);
   private
     { Private declarations }
