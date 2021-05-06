@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2021/05/06 09:02:35.510,=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/05/06 09:03:18.747,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\Client\ClientEventsRestDW.pas=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2021/05/06 09:03:18.747,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\Client\ClientEventsRestDW.dfm=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2021/05/06 09:03:53.687,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\EventsClientRDW.dproj=C:\Users\Lindson\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

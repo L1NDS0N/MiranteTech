@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D3F2C6D2-5B8C-4D7F-B4F7-0B8A1939F5B8}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="EventsServerRDW.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="EventsClientRDW.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="EventsServerRDW">
+        <MSBuild Projects="EventsServerRDW.dproj"/>
+    </Target>
+    <Target Name="EventsServerRDW:Clean">
+        <MSBuild Projects="EventsServerRDW.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EventsServerRDW:Make">
+        <MSBuild Projects="EventsServerRDW.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="EventsClientRDW">
+        <MSBuild Projects="EventsClientRDW.dproj"/>
+    </Target>
+    <Target Name="EventsClientRDW:Clean">
+        <MSBuild Projects="EventsClientRDW.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="EventsClientRDW:Make">
+        <MSBuild Projects="EventsClientRDW.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="EventsServerRDW;EventsClientRDW"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="EventsServerRDW:Clean;EventsClientRDW:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="EventsServerRDW:Make;EventsClientRDW:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
