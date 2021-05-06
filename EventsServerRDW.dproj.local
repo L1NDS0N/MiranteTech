@@ -10,5 +10,10 @@
     <Transaction>2021/05/05 15:02:07.000.950,=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.pas</Transaction>
     <Transaction>2021/05/05 15:02:22.000.371,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.dfm=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.dfm</Transaction>
     <Transaction>2021/05/05 15:02:22.000.371,C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit2.pas=C:\Users\Lindson\Documents\Projects\ServidorEventosRestDW\View\Unit1.pas</Transaction>
-  </Transactions>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Unit1.pas"/>
+    <File Path="Unit1.dfm"/>
+    <File Path="U_EventsServer.pas"/>
+    <File Path="U_EventsServer.dfm"/>
+  </ProjectSortOrder>
 </BorlandProject>

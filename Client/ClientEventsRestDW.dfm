@@ -35,12 +35,29 @@ object Form2: TForm2
     TabOrder = 1
     OnClick = btBuscarClick
   end
+  object btInserir: TButton
+    Left = 104
+    Top = 487
+    Width = 75
+    Height = 25
+    Caption = 'Inserir'
+    TabOrder = 2
+    OnClick = btInserirClick
+  end
+  object brAtualizar: TButton
+    Left = 193
+    Top = 487
+    Width = 75
+    Height = 25
+    Caption = 'Atualizar'
+    TabOrder = 3
+    OnClick = brAtualizarClick
+  end
   object RESTDWDataBase1: TRESTDWDataBase
-    Active = True
+    Active = False
     Compression = True
     CriptOptions.Use = False
     CriptOptions.Key = 'RDWBASEKEY256'
-    MyIP = '127.0.0.1'
     AuthenticationOptions.AuthorizationOption = rdwAOBasic
     AuthenticationOptions.OptionParams.AuthDialog = True
     AuthenticationOptions.OptionParams.CustomDialogAuthMessage = 'Protected Space...'
