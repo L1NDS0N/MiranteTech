@@ -78,6 +78,7 @@ begin
 //  RESTDWClientSQL1.FieldByName('ID').AsString := '32165';
 //  RESTDWClientSQL1.Post;
 // Utilizando queries SQL:
+
   RESTDWClientSQL1.SQL.Clear;
   RESTDWClientSQL1.SQL.Add('INSERT INTO NOME (ID, POSICAO, MENINO_W ) VALUES (:ID, :POSICAO, :MENINO_W)');
 
