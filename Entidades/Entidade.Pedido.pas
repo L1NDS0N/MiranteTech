@@ -3,7 +3,7 @@ unit Entidade.Pedido;
 interface
 
 uses
-  SimpleAttributes;
+  SimpleAttributes, SimpleInterface, SimpleDAO, SimpleQueryRestDW;
 
 type
   [Tabela('PEDIDO')]
@@ -26,7 +26,7 @@ type
     AutoInc]
     property ID: Integer read FID write SetID;
     [Campo('NOME')]
-    property CLIENTE: string read FNOME write SetNOME;
+    property NOME: string read FNOME write SetNOME;
     [Campo('DATA')]
     property DATA: TDatetime read FDATA write SetDATA;
   end;
