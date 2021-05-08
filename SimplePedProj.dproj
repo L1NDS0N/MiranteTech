@@ -112,7 +112,6 @@
         </DCCReference>
         <DCCReference Include="Model\Produto\SimplePed.Model.Produto.pas"/>
         <DCCReference Include="Model\Produto\SimplePed.Model.Produto.Interfaces.pas"/>
-        <DCCReference Include="Controller\Produto\SimplePed.Controller.Produto.pas"/>
         <DCCReference Include="Controller\Produto\SimplePed.Controller.Produto.Interfaces.pas"/>
         <DCCReference Include="Model\SimplePed.Model.pas"/>
         <DCCReference Include="Model\SimplePed.Model.Interfaces.pas"/>
