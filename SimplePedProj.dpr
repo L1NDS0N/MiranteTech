@@ -8,7 +8,11 @@ uses
   SimplePed.Model.Entity.Produto in 'Model\Entity\SimplePed.Model.Entity.Produto.pas',
   SimplePed.Model.Connection.RestDW in 'Model\Connection\SimplePed.Model.Connection.RestDW.pas' {ModelConnection: TDataModule},
   SimplePed.Model.Produto in 'Model\Produto\SimplePed.Model.Produto.pas',
-  SimplePed.Model.Produto.Interfaces in 'Model\Produto\SimplePed.Model.Produto.Interfaces.pas';
+  SimplePed.Model.Produto.Interfaces in 'Model\Produto\SimplePed.Model.Produto.Interfaces.pas',
+  SimplePed.Controller.Produto in 'Controller\Produto\SimplePed.Controller.Produto.pas',
+  SimplePed.Controller.Produto.Interfaces in 'Controller\Produto\SimplePed.Controller.Produto.Interfaces.pas',
+  SimplePed.Model in 'Model\SimplePed.Model.pas',
+  SimplePed.Model.Interfaces in 'Model\SimplePed.Model.Interfaces.pas';
 
 {$R *.res}
 
