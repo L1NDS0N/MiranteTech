@@ -33,7 +33,7 @@ constructor TModelProduto.Create;
 begin
   FEntidade := TPRODUTO.Create;
   FDAO := TSimpleDAO<TPRODUTO>
-    .New(TSimpleQueryRestDW<SimplePed.Model.Entity.Produto>
+    .New(TSimpleQueryRestDW<TProduto>
       .New(ModelConnection.RESTDWDataBase1));
 end;
 
