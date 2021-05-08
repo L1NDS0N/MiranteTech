@@ -17,6 +17,9 @@ type
 
 implementation
 
+uses
+  SimplePed.Model.Produto;
+
 { TModel }
 
 constructor TModel.Create;
@@ -37,7 +40,7 @@ end;
 
 function TModel.Produto: iModelproduto;
 begin
-
+  Result := TModelProduto.New;
 end;
 
 end.
