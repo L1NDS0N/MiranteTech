@@ -21,6 +21,7 @@ type
   private
     { Private declarations }
     FPessoa: iPessoa;
+    procedure   ExibeResultado(Value: String);
   public
     { Public declarations }
   end;
@@ -37,7 +38,8 @@ uses
 
 procedure TfrmPrincipal.Button1Click(Sender: TObject);
 begin
-  Memo1.Lines.Add(FPessoa.Nome(Edit1.Text).Sobrenome(Edit2.Text).NomeCompleto);
+
+FPessoa.Nome(Edit1.Text).Sobrenome(Edit2.Text).Display(ExibeResultado).NomeCompleto;
 end;
 
 procedure TfrmPrincipal.ComboBox1Change(Sender: TObject);
@@ -48,6 +50,11 @@ begin
     1:
       FPessoa := TControllerPessoa.New.Pessoa(tpJuridica);
   end;
+end;
+
+procedure TfrmPrincipal.ExibeResultado(Value: String);
+begin
+  Memo1.Lines.Add(Value);
 end;
 
 procedure TfrmPrincipal.SpeedButton1Click(Sender: TObject);
