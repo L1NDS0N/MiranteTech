@@ -19,7 +19,10 @@ object frmPrincipal: TfrmPrincipal
     Top = 8
     Width = 113
     Height = 33
+    Hint = 'Clique para alterar para pessoa jur'#237'dica'
     Caption = 'Pessoa Tipo: &F'#237'sica'
+    ParentShowHint = False
+    ShowHint = True
     OnClick = SpeedButton1Click
   end
   object Button1: TButton
@@ -33,27 +36,28 @@ object frmPrincipal: TfrmPrincipal
   end
   object Edit1: TEdit
     Left = 56
-    Top = 47
+    Top = 63
     Width = 249
     Height = 21
     TabOrder = 1
-    Text = 'Edit1'
+    TextHint = 'Nome'
   end
   object Edit2: TEdit
     Left = 328
-    Top = 47
+    Top = 63
     Width = 257
     Height = 21
     TabOrder = 2
-    Text = 'Edit2'
+    TextHint = 'Sobrenome'
   end
   object Memo1: TMemo
     Left = 56
     Top = 104
     Width = 529
     Height = 161
-    Lines.Strings = (
-      'Memo1')
+    Hint = 'Nome completo'
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 3
   end
 end

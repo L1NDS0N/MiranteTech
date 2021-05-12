@@ -47,16 +47,18 @@ end;
 procedure TfrmPrincipal.SpeedButton1Click(Sender: TObject);
 begin
   SpeedButton1.AllowAllUp := not SpeedButton1.AllowAllUp;
-//  SpeedButton1.Down := not SpeedButton1.Down;
+  // SpeedButton1.Down := not SpeedButton1.Down;
 
   if SpeedButton1.AllowAllUp then
   begin
     SpeedButton1.Caption := 'Pessoa Tipo: &Jurídica';
+    SpeedButton1.Hint := 'Clique para alterar para pessoa física';
     FPessoa := TModelPessoaFactory.New.PessoaJuridica;
   end
   else
   begin
     SpeedButton1.Caption := 'Pessoa Tipo: &Física';
+    SpeedButton1.Hint := 'Clique para alterar para pessoa jurídica';
     FPessoa := TModelPessoaFactory.New.PessoaFisica;
   end;
 end;
