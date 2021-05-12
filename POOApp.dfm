@@ -14,6 +14,14 @@ object frmPrincipal: TfrmPrincipal
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object SpeedButton1: TSpeedButton
+    Left = 152
+    Top = 8
+    Width = 113
+    Height = 33
+    Caption = 'Pessoa Tipo: &F'#237'sica'
+    OnClick = SpeedButton1Click
+  end
   object Button1: TButton
     Left = 56
     Top = 8
@@ -47,13 +55,5 @@ object frmPrincipal: TfrmPrincipal
     Lines.Strings = (
       'Memo1')
     TabOrder = 3
-  end
-  object Button2: TButton
-    Left = 152
-    Top = 8
-    Width = 113
-    Height = 33
-    Caption = 'Pessoa F'#237'sica/Jur'#237'dica'
-    TabOrder = 4
   end
 end
