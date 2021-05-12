@@ -3,11 +3,14 @@ unit POODelphi.Model.Pessoa.Interfaces;
 interface
 
 type
+  TEvDisplay = procedure (Value: String) of Object;
+
   iPessoa = interface
     ['{0B449DC4-A046-404E-B1AC-72B6D06FE9E1}']
     function Nome(Value: String): iPessoa;
     function Sobrenome(Value: String): iPessoa;
     function NomeCompleto: string;
+    function Display (Value: TEvDisplay) : iPessoa;
   end;
 
   iPessoaFactory = interface

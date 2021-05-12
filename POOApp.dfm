@@ -11,7 +11,6 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton1: TSpeedButton
@@ -59,5 +58,16 @@ object frmPrincipal: TfrmPrincipal
     ParentShowHint = False
     ShowHint = True
     TabOrder = 3
+  end
+  object ComboBox1: TComboBox
+    Left = 328
+    Top = 36
+    Width = 89
+    Height = 21
+    TabOrder = 4
+    OnChange = ComboBox1Change
+    Items.Strings = (
+      'F'#237'sica'
+      'Jur'#237'dica')
   end
 end

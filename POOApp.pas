@@ -14,9 +14,10 @@ type
     Edit2: TEdit;
     Memo1: TMemo;
     SpeedButton1: TSpeedButton;
+    ComboBox1: TComboBox;
     procedure Button1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
   private
     { Private declarations }
     FPessoa: iPessoa;
@@ -30,7 +31,7 @@ var
 implementation
 
 uses
-  POODelphi.Model.Pessoa.Factory;
+  POODelphi.Controller.Pessoa, POODelphi.Controller.Pessoa.Interfaces;
 
 {$R *.dfm}
 
@@ -39,9 +40,14 @@ begin
   Memo1.Lines.Add(FPessoa.Nome(Edit1.Text).Sobrenome(Edit2.Text).NomeCompleto);
 end;
 
-procedure TfrmPrincipal.FormCreate(Sender: TObject);
+procedure TfrmPrincipal.ComboBox1Change(Sender: TObject);
 begin
-  FPessoa := TModelPessoaFactory.New.PessoaFisica;
+  case ComboBox1.ItemIndex of
+    0:
+      FPessoa := TControllerPessoa.New.Pessoa(tpFisica);
+    1:
+      FPessoa := TControllerPessoa.New.Pessoa(tpJuridica);
+  end;
 end;
 
 procedure TfrmPrincipal.SpeedButton1Click(Sender: TObject);
@@ -53,13 +59,13 @@ begin
   begin
     SpeedButton1.Caption := 'Pessoa Tipo: &Jurídica';
     SpeedButton1.Hint := 'Clique para alterar para pessoa física';
-    FPessoa := TModelPessoaFactory.New.PessoaJuridica;
+    FPessoa := TControllerPessoa.New.Pessoa(tpJuridica);
   end
   else
   begin
     SpeedButton1.Caption := 'Pessoa Tipo: &Física';
     SpeedButton1.Hint := 'Clique para alterar para pessoa jurídica';
-    FPessoa := TModelPessoaFactory.New.PessoaFisica;
+    FPessoa := TControllerPessoa.New.Pessoa(tpFisica);
   end;
 end;
 
