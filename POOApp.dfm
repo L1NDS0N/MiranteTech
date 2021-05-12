@@ -11,6 +11,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Button1: TButton
@@ -18,7 +19,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 8
     Width = 75
     Height = 33
-    Caption = 'Button1'
+    Caption = 'Incrementar'
     TabOrder = 0
     OnClick = Button1Click
   end
@@ -26,7 +27,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 56
     Top = 47
     Width = 249
-    Height = 29
+    Height = 21
     TabOrder = 1
     Text = 'Edit1'
   end
@@ -34,7 +35,7 @@ object frmPrincipal: TfrmPrincipal
     Left = 328
     Top = 47
     Width = 257
-    Height = 29
+    Height = 21
     TabOrder = 2
     Text = 'Edit2'
   end
@@ -46,5 +47,13 @@ object frmPrincipal: TfrmPrincipal
     Lines.Strings = (
       'Memo1')
     TabOrder = 3
+  end
+  object Button2: TButton
+    Left = 152
+    Top = 8
+    Width = 113
+    Height = 33
+    Caption = 'Pessoa F'#237'sica/Jur'#237'dica'
+    TabOrder = 4
   end
 end

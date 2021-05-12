@@ -1,4 +1,4 @@
-unit POODelphi.Model.Pessoa;
+unit POODelphi.Model.PessoaJuridica;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   POODelphi.Model.Pessoa.Interfaces;
 
 type
-  TModelPessoa = class(TInterfacedObject, iPessoa)
+  TModelPessoaJuridica = class(TInterfacedObject, iPessoa)
   private
     FNome: string;
     FSobrenome: string;
@@ -23,34 +23,34 @@ implementation
 
 { TModelPessoa }
 
-constructor TModelPessoa.Create;
+constructor TModelPessoaJuridica.Create;
 begin
 
 end;
 
-destructor TModelPessoa.Destroy;
+destructor TModelPessoaJuridica.Destroy;
 begin
 
   inherited;
 end;
 
-class function TModelPessoa.New: iPessoa;
+class function TModelPessoaJuridica.New: iPessoa;
 begin
   REsult := Self.Create;
 end;
 
-function TModelPessoa.Nome(Value: string): iPessoa;
+function TModelPessoaJuridica.Nome(Value: string): iPessoa;
 begin
   Result := Self;
   FNome := Value;
 end;
 
-function TModelPessoa.NomeCompleto: string;
+function TModelPessoaJuridica.NomeCompleto: string;
 begin
-  Result := FNome + ' ' + FSobrenome;
+  Result := FNome + ' ' + FSobrenome + ' LTDA.';
 end;
 
-function TModelPessoa.Sobrenome(Value: string): iPessoa;
+function TModelPessoaJuridica.Sobrenome(Value: string): iPessoa;
 begin
   Result := Self;
   FSobrenome := Value;
