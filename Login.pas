@@ -37,6 +37,8 @@ implementation
 
 {$R *.dfm}
 
+uses Menu;
+
 procedure TFrmLogin.btnEntrarClick(Sender: TObject);
 begin
   if Trim(edtUsuario.Text) = '' then
@@ -45,9 +47,9 @@ begin
     edtUsuario.SetFocus;
     exit;
   end;
-      Login;
-//    é necessário testar se a função Trim vai apagar espaços de senhas com espaço.
-     if Trim(edtSenha.Text) = '' then
+  Login;
+  // é necessário testar se a função Trim vai apagar espaços de senhas com espaço.
+  if Trim(edtSenha.Text) = '' then
   begin
     MessageDlg('Preencha o campo de Senha', mtError, mbOKCancel, 0);
     edtSenha.SetFocus;
@@ -77,6 +79,8 @@ end;
 procedure TFrmLogin.Login;
 begin
   // login code
+  FrmMenu := TfrmMenu.Create(FrmLogin);
+  frmMenu.ShowModal;
 end;
 
 end.
