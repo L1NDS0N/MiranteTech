@@ -3,7 +3,8 @@ unit Menu;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
 
 type
@@ -21,6 +22,7 @@ type
     Cargos1: TMenuItem;
     procedure Usurios1Click(Sender: TObject);
     procedure Funcionrios1Click(Sender: TObject);
+    procedure Cargos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,12 +36,18 @@ implementation
 
 {$R *.dfm}
 
-uses Usuarios, Funcionarios;
+uses Usuarios, Funcionarios, Cargos;
+
+procedure TfrmMenu.Cargos1Click(Sender: TObject);
+begin
+  frmCargos := TfrmCargos.Create(Self);
+  frmCargos.ShowModal;
+end;
 
 procedure TfrmMenu.Funcionrios1Click(Sender: TObject);
 begin
   frmFuncionarios := TfrmFuncionarios.Create(Self);
-  frmUsuarios.ShowModal;
+  frmFuncionarios.ShowModal;
 end;
 
 procedure TfrmMenu.Usurios1Click(Sender: TObject);

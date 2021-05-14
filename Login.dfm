@@ -21668,7 +21668,7 @@ object FrmLogin: TFrmLogin
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
-        Font.Name = 'Tahoma'
+        Font.Name = 'Fira Code'
         Font.Style = []
         ParentFont = False
         PasswordChar = '*'

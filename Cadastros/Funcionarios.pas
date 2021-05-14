@@ -26,7 +26,9 @@ type
     meCPFListar: TMaskEdit;
     DBGrid1: TDBGrid;
     btNovoFuncionario: TSpeedButton;
-    SpeedButton1: TSpeedButton;
+    btnSalvarFuncionario: TSpeedButton;
+    btnEditarFuncionario: TSpeedButton;
+    btnExcluir: TSpeedButton;
   private
     { Private declarations }
   public

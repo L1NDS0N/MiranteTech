@@ -118,6 +118,7 @@ object frmMenu: TfrmMenu
       end
       object Cargos1: TMenuItem
         Caption = 'Cargos'
+        OnClick = Cargos1Click
       end
     end
     object Estoque1: TMenuItem
