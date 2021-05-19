@@ -94,6 +94,10 @@
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Visitor.Model.Interfaces.pas"/>
+        <DCCReference Include="Visitor.Model.Item.pas"/>
+        <DCCReference Include="Visitor.Model.Item.Regra.Varejo.pas"/>
+        <DCCReference Include="Visitor.Model.Item.Regra.Atacado.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
