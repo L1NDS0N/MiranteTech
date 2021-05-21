@@ -36,7 +36,7 @@ end;
 
 class function TModelItemRegraAtacado.New: iItemRegras;
 begin
-
+  Result := Self.Create;
 end;
 
 function TModelItemRegraAtacado.PrecoPromocao: Currency;

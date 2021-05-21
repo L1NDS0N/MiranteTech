@@ -36,7 +36,7 @@ end;
 
 class function TModelItemRegraVarejo.New: iItemRegras;
 begin
-
+Result := Self.Create;
 end;
 
 function TModelItemRegraVarejo.PrecoPromocao: Currency;

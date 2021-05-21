@@ -18,6 +18,7 @@ type
       function Accept(Value: iVisitor): iItemRegras;
       function PrecoUnitario: Currency;
       function Visitor: iVisitor;
+      function Regras: iVisitable;
 
       constructor Create;
       destructor Destroy; override;
@@ -50,7 +51,7 @@ end;
 
 class function TModelItem.New: iItem;
 begin
-
+Result := Self.Create;
 end;
 
 function TModelItem.PrecoPromocao: Currency;
@@ -66,6 +67,11 @@ end;
 function TModelItem.PrecoVenda: Currency;
 begin
 Result := FVisitor.Visit(Self).PrecoVenda;
+end;
+
+function TModelItem.Regras: iVisitable;
+begin
+Result := Self;
 end;
 
 function TModelItem.SetPrecoUnitario(Value: Currency): iItem;
