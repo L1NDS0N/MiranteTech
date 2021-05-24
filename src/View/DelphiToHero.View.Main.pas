@@ -17,11 +17,11 @@ type
     btnPrincipal: TSpeedButton;
     btnUsuarios: TSpeedButton;
     procedure FormCreate(Sender: TObject);
-  private
-    procedure ApplyStyle;
-    { Private declarations }
-  public
-    { Public declarations }
+    private
+      procedure ApplyStyle;
+      { Private declarations }
+    public
+      { Public declarations }
   end;
 
 var
@@ -30,24 +30,26 @@ var
 implementation
 
 uses
-  DelphiToHero.View.Styles.Color;
+  Router4D,
+  DelphiToHero.View.Styles.Color, DelphiToHero.View.Pages.Principal;
 
 {$R *.dfm}
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
-  ApplyStyle;
+ApplyStyle;
+TRouter4D.Render<TPagePrincipal>.SetElement(pnlPrincipal, pnlMain);
 end;
 
 procedure TformPrincipal.ApplyStyle;
 begin
-  pnlPrincipal.Color := COLOR_BACKGROUND;
-  pnlTop.Color := COLOR_BACKGROUND_TOP;
-  pnlLogo.Color := COLOR_BACKGROUND_DESTAK;
-  pnlMenu.Color := COLOR_BACKGROUND_MENU;
-  Self.Font.Color := FONT_COLOR;
-  Self.Font.Size := FONT_H6;
-  Self.Font.Name := FONT_NAME;
+pnlPrincipal.Color := COLOR_BACKGROUND;
+pnlTop.Color := COLOR_BACKGROUND_TOP;
+pnlLogo.Color := COLOR_BACKGROUND_DESTAK;
+pnlMenu.Color := COLOR_BACKGROUND_MENU;
+Self.Font.Color := FONT_COLOR;
+Self.Font.Size := FONT_H6;
+Self.Font.Name := FONT_NAME;
 end;
 
 end.
