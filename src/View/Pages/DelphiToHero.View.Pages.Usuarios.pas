@@ -11,6 +11,7 @@ type
   TPageUsuarios = class(TForm, iRouter4DComponent)
     Panel1: TPanel;
     Label1: TLabel;
+    procedure FormCreate(Sender: TObject);
     private
       { Private declarations }
     public
@@ -24,8 +25,16 @@ var
 
 implementation
 
+uses
+  DelphiToHero.View.Styles.Color;
+
 {$R *.dfm}
 { TPageUsuarios }
+
+procedure TPageUsuarios.FormCreate(Sender: TObject);
+begin
+ Panel1.Color := COLOR_BACKGROUND;
+end;
 
 function TPageUsuarios.Render: TForm;
 begin
