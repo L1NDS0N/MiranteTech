@@ -5,7 +5,6 @@ uses
   DelphiToHero.View.Main in 'src\View\DelphiToHero.View.Main.pas' {formPrincipal},
   DelphiToHero.View.Styles.Color in 'src\View\Styles\DelphiToHero.View.Styles.Color.pas',
   DelphiToHero.View.Pages.Principal in 'src\View\Pages\DelphiToHero.View.Pages.Principal.pas' {PagePrincipal},
-  DelphiToHero.View.Pages.Usuarios in 'src\View\Pages\DelphiToHero.View.Pages.Usuarios.pas' {PageUsuarios},
   DelphiToHero.View.Routers in 'src\View\Routers\DelphiToHero.View.Routers.pas';
 
 {$R *.res}
