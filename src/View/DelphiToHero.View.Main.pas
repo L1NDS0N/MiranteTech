@@ -17,6 +17,8 @@ type
     btnPrincipal: TSpeedButton;
     btnUsuarios: TSpeedButton;
     procedure FormCreate(Sender: TObject);
+    procedure btnUsuariosClick(Sender: TObject);
+    procedure btnPrincipalClick(Sender: TObject);
     private
       procedure ApplyStyle;
       { Private declarations }
@@ -34,6 +36,16 @@ uses
   DelphiToHero.View.Styles.Color, DelphiToHero.View.Pages.Principal;
 
 {$R *.dfm}
+
+procedure TformPrincipal.btnPrincipalClick(Sender: TObject);
+begin
+  TRouter4D.Link.&To('Principal');
+end;
+
+procedure TformPrincipal.btnUsuariosClick(Sender: TObject);
+begin
+  TRouter4D.Link.&To('Usuarios');
+end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);
 begin

@@ -47,6 +47,7 @@ object formPrincipal: TformPrincipal
         Align = alTop
         Caption = 'Principal'
         Flat = True
+        OnClick = btnPrincipalClick
       end
       object btnUsuarios: TSpeedButton
         Left = 0
@@ -56,6 +57,7 @@ object formPrincipal: TformPrincipal
         Align = alTop
         Caption = 'Usu'#225'rios'
         Flat = True
+        OnClick = btnUsuariosClick
       end
       object pnlLogo: TPanel
         Left = 0
