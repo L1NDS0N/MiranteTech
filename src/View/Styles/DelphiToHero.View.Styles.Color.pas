@@ -1,0 +1,23 @@
+unit DelphiToHero.View.Styles.Color;
+
+interface
+
+const
+  COLOR_BACKGROUND = $00FFFFFF;
+  COLOR_BACKGROUND_TOP = $00A4584C;
+  COLOR_BACKGROUND_TOP_SUBMENU = $00FCFAF9;
+  COLOR_BACKGROUND_MENU = $00F8F2ED;
+  COLOR_BACKGROUND_DESTAK = $0084C400;
+  FONT_COLOR = $00322F2D;
+
+  FONT_NAME = 'Fira Code Light';
+  FONT_H1 = 22;
+  FONT_H2 = 20;
+  FONT_H3 = 18;
+  FONT_H4 = 16;
+  FONT_H5 = 14;
+  FONT_H6 = 12;
+
+implementation
+
+end.
