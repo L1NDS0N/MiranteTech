@@ -16,6 +16,5 @@ begin
   ReportMemoryLeaksOnShutdown := True;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TformPrincipal, formPrincipal);
-  Application.CreateForm(TPageUsuarios, PageUsuarios);
   Application.Run;
 end.

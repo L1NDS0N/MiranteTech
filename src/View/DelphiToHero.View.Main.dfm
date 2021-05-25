@@ -91,8 +91,6 @@ object formPrincipal: TformPrincipal
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 6
-        ExplicitTop = 116
       end
     end
   end
