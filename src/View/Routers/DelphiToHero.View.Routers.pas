@@ -17,15 +17,16 @@ var
 implementation
 
 uses
-  Router4D, DelphiToHero.View.Pages.Principal;
-//  DelphiToHero.View.Pages.Usuarios;
+  Router4D, DelphiToHero.View.Pages.Principal,
+  DelphiToHero.View.Pages.Usuarios;
+
 { TRouters }
 
 constructor TRouters.Create;
 begin
 TRouter4D.Switch
   .Router('Principal', TPagePrincipal)
-//  .Router('Usuarios', TPageUsuarios);
+  .Router('Usuarios', TPageUsuarios);
 end;
 
 destructor TRouters.Destroy;
