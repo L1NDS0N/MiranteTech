@@ -19,6 +19,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnUsuariosClick(Sender: TObject);
     procedure btnPrincipalClick(Sender: TObject);
+
     private
       procedure ApplyStyle;
       { Private declarations }
@@ -39,12 +40,12 @@ uses
 
 procedure TformPrincipal.btnPrincipalClick(Sender: TObject);
 begin
-  TRouter4D.Link.&To('Principal');
+TRouter4D.Link.&To('Principal');
 end;
 
 procedure TformPrincipal.btnUsuariosClick(Sender: TObject);
 begin
-  TRouter4D.Link.&To('Usuarios');
+TRouter4D.Link.&To('Usuarios');
 end;
 
 procedure TformPrincipal.FormCreate(Sender: TObject);

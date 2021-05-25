@@ -12,7 +12,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, FireDAC.Stan.StorageBin,
-  DelphiToHero.View.Styles.Color;
+  DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels;
 
 type
   TFormTemplate = class(TForm, iRouter4DComponent)
@@ -77,8 +77,13 @@ type
     ImageList1: TImageList;
     DataSource1: TDataSource;
     FDMemTable1: TFDMemTable;
+    pnlMainCadastroButton: TPanel;
+    cxButton6: TcxButton;
+    cxButton7: TcxButton;
+    cxButton8: TcxButton;
 
     procedure FormCreate(Sender: TObject);
+    procedure cxButton5Click(Sender: TObject);
     private
       FEndPoint: String;
       FPK: String;
@@ -89,6 +94,9 @@ type
       procedure ApplyStyle;
       function Render: TForm;
       procedure Unrender;
+      procedure GetEndPoint;
+      procedure AlterListForm;
+    procedure FormatList;
     public
       { Public declarations }
   end;
@@ -113,11 +121,33 @@ DBGrid1.TitleFont.Color := FONT_COLOR4;
 
 end;
 
+procedure TFormTemplate.cxButton5Click(Sender: TObject);
+begin
+AlterListForm;
+end;
+
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
-// TBindFormJson.New.BindClassToForm(Self, FEndPoint, FPK, FTitle);
 ApplyStyle;
+GetEndPoint;
+end;
+
+procedure TFormTemplate.GetEndPoint;
+begin
+TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable1).Get;
+  FormatList;
+end;
+
+procedure TFormTemplate.AlterListForm;
+begin
+pnlMainBodyDataForm.Visible := not pnlMainBodyDataForm.Visible;
+DBGrid1.Visible := not DBGrid1.Visible;
+end;
+
+procedure TFormTemplate.FormatList;
+begin
+  TBind4D.New.Form(Self).BindFormatListDataSet(FDMemTable1, DBGrid1);
 end;
 
 function TFormTemplate.Render: TForm;
