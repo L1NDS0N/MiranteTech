@@ -44,7 +44,7 @@ object FormTemplate: TFormTemplate
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        object Label1: TLabel
+        object lblTItle: TLabel
           Left = 0
           Top = 0
           Width = 32
@@ -228,7 +228,7 @@ object FormTemplate: TFormTemplate
               BevelOuter = bvNone
               Padding.Top = 15
               TabOrder = 2
-              object Label2: TLabel
+              object lblSearch: TLabel
                 Left = 0
                 Top = 15
                 Width = 360
@@ -237,13 +237,19 @@ object FormTemplate: TFormTemplate
                 Caption = 'Pesquisar'
                 ExplicitWidth = 46
               end
-              object Edit1: TEdit
+              object edtSearch: TEdit
                 Left = 0
                 Top = 28
                 Width = 360
                 Height = 24
                 Align = alTop
                 BorderStyle = bsNone
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
                 TabOrder = 0
                 TextHint = 'Descreva a sua pesquisa'
               end
@@ -1389,7 +1395,7 @@ object FormTemplate: TFormTemplate
     Left = 584
     Top = 228
     Content = {
-      414442530F009921C42B0000FF00010001FF02FF03040016000000460044004D
+      414442530F00B831C42B0000FF00010001FF02FF03040016000000460044004D
       0065006D005400610062006C0065003100050000000000060000070032000000
       080000FF09FF0A04000C00000043007500730074004E006F000B00010000000D
       000C000E00010F000110000111000112000113000114000C0000004300750073

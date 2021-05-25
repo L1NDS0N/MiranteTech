@@ -52,18 +52,32 @@ type
     [ComponentBindStyle(COLOR_C1, FONT_H5, FONT_COLOR3, FONT_NAME)]
     pnlTopBody: TPanel;
 
-    cxButton1: TcxButton;
-    cxButton2: TcxButton;
-    cxButton3: TcxButton;
-    cxButton4: TcxButton;
-    cxButton5: TcxButton;
-    ImageList1: TImageList;
-    Label1: TLabel;
-    Label2: TLabel;
-    Edit1: TEdit;
+    [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    lblTItle: TLabel;
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME)]
+    lblSearch: TLabel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H6, COLOR_BACKGROUND_TOP, FONT_NAME)]
+    edtSearch: TEdit;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H6, FONT_COLOR4, FONT_NAME2)]
     DBGrid1: TDBGrid;
+
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME3)]
+    cxButton1: TcxButton;
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME3)]
+    cxButton2: TcxButton;
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME3)]
+    cxButton3: TcxButton;
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME3)]
+    cxButton4: TcxButton;
+    [ComponentBindStyle(clBtnFace, FONT_H7, FONT_COLOR3, FONT_NAME3)]
+    cxButton5: TcxButton;
+
+    ImageList1: TImageList;
     DataSource1: TDataSource;
     FDMemTable1: TFDMemTable;
+
     procedure FormCreate(Sender: TObject);
     private
       FEndPoint: String;
@@ -89,23 +103,10 @@ implementation
 
 procedure TFormTemplate.ApplyStyle;
 begin
-Label1.Caption := FTitle;
 
 pnlMainBodyDataForm.Visible := false;
+lblTItle.Caption := FTitle;
 
-Label2.Font.Size := FONT_H5;
-Label2.Font.Color := FONT_COLOR3;
-Edit1.Font.Color := COLOR_BACKGROUND_TOP;
-Edit1.Font.Size := FONT_H5;
-Edit1.Color := COLOR_BACKGROUND;
-
-Label1.Font.Size := FONT_H5;
-Label1.Font.Color := FONT_COLOR3;
-Label1.Font.Name := FONT_NAME;
-
-DBGrid1.Font.Size := FONT_H5;
-DBGrid1.Font.Color := FONT_COLOR4;
-DBGrid1.Font.Name := 'Fira Code Retina';
 DBGrid1.TitleFont.Size := FONT_H5;
 DBGrid1.TitleFont.Name := 'Fira Code Bold';
 DBGrid1.TitleFont.Color := FONT_COLOR4;

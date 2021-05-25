@@ -19,6 +19,9 @@ const
   COLOR_C2 = $00E3DAC1;
 
   FONT_NAME = 'Fira Code Light';
+  FONT_NAME2 = 'Fira Code Retina';
+  FONT_NAME3 = 'Fira Code SemiBold';
+
   FONT_H1 = 22;
   FONT_H2 = 20;
   FONT_H3 = 18;
