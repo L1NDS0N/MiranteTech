@@ -15,7 +15,7 @@ object FormTemplate: TFormTemplate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Panel1: TPanel
+  object pnlPrincipal: TPanel
     Left = 0
     Top = 0
     Width = 1024
@@ -24,7 +24,7 @@ object FormTemplate: TFormTemplate
     BevelOuter = bvNone
     ParentBackground = False
     TabOrder = 0
-    object Panel2: TPanel
+    object pnlTop: TPanel
       Left = 0
       Top = 0
       Width = 1024
@@ -35,7 +35,7 @@ object FormTemplate: TFormTemplate
       Padding.Right = 100
       ParentBackground = False
       TabOrder = 0
-      object Panel4: TPanel
+      object pnlTopBody: TPanel
         Left = 100
         Top = 0
         Width = 824
@@ -80,7 +80,6 @@ object FormTemplate: TFormTemplate
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          ExplicitLeft = 684
         end
         object cxButton2: TcxButton
           Left = 464
@@ -102,7 +101,6 @@ object FormTemplate: TFormTemplate
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          ExplicitLeft = 404
         end
         object cxButton3: TcxButton
           Left = 584
@@ -124,11 +122,10 @@ object FormTemplate: TFormTemplate
           Font.Name = 'Tahoma'
           Font.Style = [fsBold]
           ParentFont = False
-          ExplicitLeft = 544
         end
       end
     end
-    object Panel3: TPanel
+    object pnlMain: TPanel
       Left = 0
       Top = 110
       Width = 1024
@@ -145,7 +142,7 @@ object FormTemplate: TFormTemplate
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      object Panel5: TPanel
+      object pnlMainBody: TPanel
         Left = 100
         Top = 0
         Width = 824
@@ -154,7 +151,7 @@ object FormTemplate: TFormTemplate
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        object Panel6: TPanel
+        object pnlMainBodyTop: TPanel
           Left = 0
           Top = 0
           Width = 824
@@ -172,7 +169,7 @@ object FormTemplate: TFormTemplate
             ParentBackground = False
             TabOrder = 0
           end
-          object Panel7: TPanel
+          object pnlMainTopBodyMenu: TPanel
             Left = 0
             Top = 0
             Width = 824
@@ -200,7 +197,6 @@ object FormTemplate: TFormTemplate
               Font.Name = 'Tahoma'
               Font.Style = [fsBold]
               ParentFont = False
-              ExplicitLeft = 140
             end
             object cxButton5: TcxButton
               Left = 0
@@ -223,7 +219,7 @@ object FormTemplate: TFormTemplate
               Font.Style = [fsBold]
               ParentFont = False
             end
-            object Panel8: TPanel
+            object pnlMainTopSearch: TPanel
               Left = 464
               Top = 0
               Width = 360
@@ -250,9 +246,8 @@ object FormTemplate: TFormTemplate
                 BorderStyle = bsNone
                 TabOrder = 0
                 TextHint = 'Descreva a sua pesquisa'
-                ExplicitWidth = 420
               end
-              object Panel9: TPanel
+              object pnlMainTopSearchLine: TPanel
                 Left = 0
                 Top = 52
                 Width = 360
@@ -261,12 +256,11 @@ object FormTemplate: TFormTemplate
                 BevelOuter = bvNone
                 ParentBackground = False
                 TabOrder = 1
-                ExplicitWidth = 420
               end
             end
           end
         end
-        object Panel10: TPanel
+        object pnlMainBodyData: TPanel
           Left = 0
           Top = 110
           Width = 824
@@ -277,7 +271,7 @@ object FormTemplate: TFormTemplate
           Padding.Top = 10
           Padding.Bottom = 50
           TabOrder = 1
-          object Panel11: TPanel
+          object pnlMainBodyDataForm: TPanel
             Left = 464
             Top = 10
             Width = 360
@@ -1395,7 +1389,7 @@ object FormTemplate: TFormTemplate
     Left = 584
     Top = 228
     Content = {
-      414442530F009F2EC42B0000FF00010001FF02FF03040016000000460044004D
+      414442530F009921C42B0000FF00010001FF02FF03040016000000460044004D
       0065006D005400610062006C0065003100050000000000060000070032000000
       080000FF09FF0A04000C00000043007500730074004E006F000B00010000000D
       000C000E00010F000110000111000112000113000114000C0000004300750073

@@ -11,32 +11,56 @@ uses
   Bind4D, Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FireDAC.Stan.StorageBin, FireDAC.Comp.BatchMove,
-  FireDAC.Comp.BatchMove.JSON;
+  FireDAC.Comp.Client, FireDAC.Stan.StorageBin,
+  DelphiToHero.View.Styles.Color;
 
 type
   TFormTemplate = class(TForm, iRouter4DComponent)
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Panel3: TPanel;
-    Panel4: TPanel;
-    Label1: TLabel;
-    ImageList1: TImageList;
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlPrincipal: TPanel;
+
+    [ComponentBindStyle(COLOR_C1, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlTop: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMain: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainBody: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainBodyTop: TPanel;
+
+    [ComponentBindStyle(COLOR_C2, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    linhaSeparadora: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainTopBodyMenu: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainTopSearch: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND_TOP, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainTopSearchLine: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainBodyData: TPanel;
+
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlMainBodyDataForm: TPanel;
+
+    [ComponentBindStyle(COLOR_C1, FONT_H5, FONT_COLOR3, FONT_NAME)]
+    pnlTopBody: TPanel;
+
     cxButton1: TcxButton;
     cxButton2: TcxButton;
     cxButton3: TcxButton;
-    Panel5: TPanel;
-    Panel6: TPanel;
-    linhaSeparadora: TPanel;
-    Panel7: TPanel;
     cxButton4: TcxButton;
     cxButton5: TcxButton;
-    Panel8: TPanel;
+    ImageList1: TImageList;
+    Label1: TLabel;
     Label2: TLabel;
     Edit1: TEdit;
-    Panel9: TPanel;
-    Panel10: TPanel;
-    Panel11: TPanel;
     DBGrid1: TDBGrid;
     DataSource1: TDataSource;
     FDMemTable1: TFDMemTable;
@@ -45,6 +69,8 @@ type
       FEndPoint: String;
       FPK: String;
       FTitle: String;
+      FOrder: String;
+      FSort: String;
       { Private declarations }
       procedure ApplyStyle;
       function Render: TForm;
@@ -58,28 +84,14 @@ var
 
 implementation
 
-uses
-  DelphiToHero.View.Styles.Color;
-
 {$R *.dfm}
 { TFormTemplate }
 
 procedure TFormTemplate.ApplyStyle;
 begin
 Label1.Caption := FTitle;
-Panel1.Color := COLOR_BACKGROUND;
-Panel2.Color := COLOR_C1;
-Panel3.Color := COLOR_BACKGROUND;
-Panel4.Color := COLOR_C1;
-Panel5.Color := COLOR_BACKGROUND;
-Panel6.Color := COLOR_BACKGROUND;
-linhaSeparadora.Color := COLOR_C2;
-Panel8.Color := COLOR_BACKGROUND;
-Panel9.Color := COLOR_BACKGROUND_TOP;
-Panel10.Color := COLOR_BACKGROUND;
-Panel11.Color := COLOR_BACKGROUND;
-Panel11.Visible := false;
 
+pnlMainBodyDataForm.Visible := false;
 
 Label2.Font.Size := FONT_H5;
 Label2.Font.Color := FONT_COLOR3;
@@ -102,7 +114,8 @@ end;
 
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
-TBindFormJson.New.BindClassToForm(Self, FEndPoint, FPK, FTitle);
+TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
+// TBindFormJson.New.BindClassToForm(Self, FEndPoint, FPK, FTitle);
 ApplyStyle;
 end;
 
