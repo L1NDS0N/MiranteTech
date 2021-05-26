@@ -117,7 +117,7 @@ lblTItle.Caption := FTitle;
 
 DBGrid1.TitleFont.Size := FONT_H5;
 DBGrid1.TitleFont.Name := 'Fira Code Bold';
-DBGrid1.TitleFont.Color := FONT_COLOR4;
+DBGrid1.TitleFont.Color := FONT_COLOR3;
 
 end;
 
@@ -142,7 +142,6 @@ end;
 procedure TFormTemplate.AlterListForm;
 begin
 pnlMainBodyDataForm.Visible := not pnlMainBodyDataForm.Visible;
-DBGrid1.Visible := not DBGrid1.Visible;
 end;
 
 procedure TFormTemplate.FormatList;

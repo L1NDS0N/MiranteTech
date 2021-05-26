@@ -13,11 +13,14 @@ inherited PageUsuarios: TPageUsuarios
             ExplicitWidth = 720
             inherited pnlMainCadastroButton: TPanel
               Width = 670
+              ExplicitWidth = 670
               inherited cxButton7: TcxButton
                 Left = 550
+                ExplicitLeft = 550
               end
               inherited cxButton8: TcxButton
                 Left = 430
+                ExplicitLeft = 430
               end
             end
             object StackPanel1: TStackPanel
@@ -63,8 +66,6 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Right = 15
               Spacing = 5
               TabOrder = 1
-              ExplicitLeft = 19
-              ExplicitTop = -4
               object Label1: TLabel
                 Left = 15
                 Top = 0
@@ -169,7 +170,7 @@ inherited PageUsuarios: TPageUsuarios
             object StackPanel2: TStackPanel
               Left = 377
               Top = 0
-              Width = 344
+              Width = 347
               Height = 376
               Align = alLeft
               BevelOuter = bvNone
@@ -202,10 +203,11 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Left = 15
               Padding.Right = 15
               TabOrder = 2
+              ExplicitLeft = 424
               object Label6: TLabel
                 Left = 15
                 Top = 0
-                Width = 314
+                Width = 317
                 Height = 19
                 Caption = 'Nascimento'
                 Font.Charset = DEFAULT_CHARSET
@@ -218,7 +220,7 @@ inherited PageUsuarios: TPageUsuarios
               object dateBirth: TDateTimePicker
                 Left = 15
                 Top = 21
-                Width = 314
+                Width = 317
                 Height = 21
                 Date = 44341.000000000000000000
                 Time = 0.705436030089913400
@@ -227,7 +229,7 @@ inherited PageUsuarios: TPageUsuarios
               object Label7: TLabel
                 Left = 15
                 Top = 44
-                Width = 314
+                Width = 317
                 Height = 19
                 Caption = #218'ltima transa'#231#227'o'
                 Font.Charset = DEFAULT_CHARSET
@@ -240,7 +242,7 @@ inherited PageUsuarios: TPageUsuarios
               object TimeTrans: TDateTimePicker
                 Left = 15
                 Top = 65
-                Width = 314
+                Width = 317
                 Height = 21
                 Date = 44341.000000000000000000
                 Time = 0.705436030089913400
@@ -250,7 +252,7 @@ inherited PageUsuarios: TPageUsuarios
               object Label8: TLabel
                 Left = 15
                 Top = 88
-                Width = 314
+                Width = 317
                 Height = 19
                 Caption = 'CPF'
                 Font.Charset = DEFAULT_CHARSET
@@ -263,14 +265,14 @@ inherited PageUsuarios: TPageUsuarios
               object edtCPF: TEdit
                 Left = 15
                 Top = 109
-                Width = 314
+                Width = 317
                 Height = 21
                 TabOrder = 2
               end
               object Label9: TLabel
                 Left = 15
                 Top = 132
-                Width = 314
+                Width = 317
                 Height = 19
                 Caption = 'CNPJ'
                 Font.Charset = DEFAULT_CHARSET
@@ -283,7 +285,7 @@ inherited PageUsuarios: TPageUsuarios
               object edtCNPJ: TEdit
                 Left = 15
                 Top = 153
-                Width = 314
+                Width = 317
                 Height = 21
                 TabOrder = 3
               end
@@ -295,5 +297,11 @@ inherited PageUsuarios: TPageUsuarios
         end
       end
     end
+  end
+  inherited DataSource1: TDataSource
+    Left = 120
+  end
+  inherited FDMemTable1: TFDMemTable
+    Left = 124
   end
 end
