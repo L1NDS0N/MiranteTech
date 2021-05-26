@@ -1986,19 +1986,7 @@ object FormTemplate: TFormTemplate
       000000000000}
   end
   object DataSource1: TDataSource
-    DataSet = FDMemTable1
-    Left = 296
-    Top = 292
-  end
-  object FDMemTable1: TFDMemTable
-    FetchOptions.AssignedValues = [evMode]
-    FetchOptions.Mode = fmAll
-    ResourceOptions.AssignedValues = [rvSilentMode]
-    ResourceOptions.SilentMode = True
-    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
-    UpdateOptions.CheckRequired = False
-    UpdateOptions.AutoCommitUpdates = True
-    Left = 292
-    Top = 238
+    Left = 120
+    Top = 668
   end
 end

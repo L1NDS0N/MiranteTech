@@ -111,6 +111,8 @@
             <Form>PageUsuarios</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="src\Model\DAO\DelphiToHero.Model.DAO.Interfaces.pas"/>
+        <DCCReference Include="src\Model\DAO\DelphiToHero.Model.DAO.REST.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

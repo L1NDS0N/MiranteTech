@@ -8,11 +8,9 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Router4D.Interfaces,
   Vcl.StdCtrls, System.ImageList, Vcl.ImgList, Vcl.Buttons, cxGraphics,
   cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, cxButtons,
-  Bind4D, Data.DB, Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
-  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, FireDAC.Stan.StorageBin,
-  DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels;
+  Bind4D, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels,
+  DelphiToHero.Model.DAO.Interfaces;
 
 type
   TFormTemplate = class(TForm, iRouter4DComponent)
@@ -76,7 +74,6 @@ type
 
     ImageList1: TImageList;
     DataSource1: TDataSource;
-    FDMemTable1: TFDMemTable;
     pnlMainCadastroButton: TPanel;
     cxButton6: TcxButton;
     cxButton7: TcxButton;
@@ -94,6 +91,7 @@ type
       FTitle: String;
       FOrder: String;
       FSort: String;
+      FDAO: iDAOInterface;
       { Private declarations }
       procedure ApplyStyle;
       function Render: TForm;
@@ -111,7 +109,7 @@ var
 implementation
 
 uses
-  System.JSON;
+  System.JSON, DelphiToHero.Model.DAO.REST;
 
 {$R *.dfm}
 { TFormTemplate }
@@ -156,12 +154,13 @@ end;
 
 procedure TFormTemplate.DBGrid1DblClick(Sender: TObject);
 begin
-TBind4D.New.Form(Self).BindDataSetToForm(FDMemTable1);
+TBind4D.New.Form(Self).BindDataSetToForm(FDAO.DataSet);
 pnlMainBodyDataForm.Visible := true;
 end;
 
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
+FDAO := TDAOREST.New(Self).DataSource(DataSource1);
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
 ApplyStyle;
 end;
@@ -173,7 +172,7 @@ end;
 
 procedure TFormTemplate.GetEndPoint;
 begin
-TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable1).Get;
+FDAO.Get;
 FormatList;
 end;
 
@@ -184,7 +183,7 @@ end;
 
 procedure TFormTemplate.FormatList;
 begin
-TBind4D.New.Form(Self).BindFormatListDataSet(FDMemTable1, DBGrid1);
+TBind4D.New.Form(Self).BindFormatListDataSet(FDAO.DataSet, DBGrid1);
 end;
 
 function TFormTemplate.Render: TForm;
