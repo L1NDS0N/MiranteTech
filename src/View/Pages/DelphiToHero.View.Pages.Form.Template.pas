@@ -191,7 +191,10 @@ end;
 
 procedure TFormTemplate.GetEndPoint;
 begin
-FDAO.Get;
+FDAO
+  .AddParam('sort', FSort)
+  .AddParam('order', FOrder)
+.Get;
 FormatList;
 end;
 

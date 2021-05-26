@@ -4,6 +4,7 @@ interface
 
 uses
   Data.DB,
+  Vcl.Forms,
   FireDAC.Stan.Intf,
   FireDAC.Stan.Option,
   FireDAC.Stan.Param,
@@ -12,13 +13,10 @@ uses
   FireDAC.Phys.Intf,
   FireDAC.DApt.Intf,
   FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client,
   FireDAC.Stan.StorageBin,
-
-  DelphiToHero.Model.DAO.Interfaces,
   RESTRequest4D,
-  Bind4D,
-  Vcl.Forms;
+  DelphiToHero.Model.DAO.Interfaces,
+  Bind4D, FireDAC.Comp.Client, System.Generics.Collections;
 
 type
   TDAOREST = class(TInterfacedObject, iDAOInterface)
@@ -27,7 +25,10 @@ type
       FBaseURL: String;
       FForm: TForm;
       FEndPoint, FPK, FOrder, FSort: String;
+      FParamList: TDictionary<String, String>;
+
       function PrepareGuuid(aValue: String): String;
+
     public
       constructor Create(aForm: TForm);
       destructor Destroy; override;
@@ -38,6 +39,7 @@ type
       function Delete: iDAOInterface;
       function DataSource(aValue: TDataSource): iDAOInterface;
       function DataSet: TDataSet;
+      function AddParam(aKey: String; aValue: String): iDAOInterface;
 
   end;
 
@@ -48,8 +50,15 @@ uses
 
 { TDAOREST }
 
+function TDAOREST.AddParam(aKey, aValue: String): iDAOInterface;
+begin
+Result := Self;
+FParamList.Add(aKey, aValue);
+end;
+
 constructor TDAOREST.Create(aForm: TForm);
 begin
+FParamList := TDictionary<String, String>.Create;
 FDMemTable := TFDMemTable.Create(nil);
 FBaseURL := 'http://localhost:9000';
 FForm := aForm;
@@ -78,11 +87,23 @@ end;
 destructor TDAOREST.Destroy;
 begin
 FDMemTable.Free;
+FParamList.Free;
 inherited;
 end;
 
 function TDAOREST.Get: iDAOInterface;
+var
+  aURL: String;
 begin
+aURL := FBaseURL + FEndPoint + '?';
+if FParamList.Count > 0 then
+  begin
+  for var Param in FParamList do
+    begin
+    aURL := aURL + Param.Key + '=' + Param.Value + '&';
+    end;
+
+  end;
 TRequest.New.BaseURL(FBaseURL + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable).Get;
 end;
 

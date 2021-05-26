@@ -15,6 +15,7 @@ type
     function Delete: iDAOInterface;
     function DataSource(aValue: TDataSource): iDAOInterface;
     function DataSet: TDataSet;
+    function AddParam (aKey: String; aValue: String): iDAOInterface;
   end;
 
 implementation
