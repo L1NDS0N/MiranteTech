@@ -31,7 +31,7 @@ type
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label2: TLabel;
 
-    [FieldJsonBind('name'), FbIgnorePost, FbIgnorePut]
+    [FieldJsonBind('name')]
     [FieldDataSetBind('name', ftString, true, 0, 'Nome')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     edtName: TEdit;
@@ -39,56 +39,56 @@ type
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label3: TLabel;
 
-    [FieldJsonBind('phone'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('phone', ftString, True, 0, 'Telefone', '!\(##\) #####-####;0;_')]
+    [FieldJsonBind('phone')]
+    [FieldDataSetBind('phone', ftString, true, 0, 'Telefone', '!\(##\) #####-####;0;_')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCell)]
     edtTelefone: TEdit;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label4: TLabel;
 
-    [FieldJsonBind('occupation'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('occupation', ftString, True, 0, 'Profissão')]
+    [FieldJsonBind('occupation')]
+    [FieldDataSetBind('occupation', ftString, true, 0, 'Profissão')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     edtOcupacao: TEdit;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label5: TLabel;
 
-    [FieldJsonBind('balance'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('balance', ftCurrency, True, 0, 'Saldo', 'R$ ###,###,##0.00', taLeftJustify)]
+    [FieldJsonBind('balance')]
+    [FieldDataSetBind('balance', ftCurrency, true, 0, 'Saldo', 'R$ ###,###,##0.00', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCoin)]
     edtSaldo: TEdit;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label6: TLabel;
 
-    [FieldJsonBind('birthdate'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('birthdate', ftDate, True, 0, 'Nascimento', '##/##/####;0;_', taLeftJustify)]
+    [FieldJsonBind('birthdate')]
+    [FieldDataSetBind('birthdate', ftDate, true, 0, 'Nascimento', '##/##/####;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     dateBirth: TDateTimePicker;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label7: TLabel;
 
-    [FieldJsonBind('lasttransaction'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('lasttransaction', ftTime, True, 0, 'Últ. transação', '##:##:##;0;_', taLeftJustify)]
+    [FieldJsonBind('lasttransaction')]
+    [FieldDataSetBind('lasttransaction', ftTime, true, 0, 'Últ. transação', '##:##:##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     TimeTrans: TDateTimePicker;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label8: TLabel;
 
-    [FieldJsonBind('cpf'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('cpf', ftString, True, 0, 'CPF', '###.###.###-##;0;_', taLeftJustify)]
+    [FieldJsonBind('cpf')]
+    [FieldDataSetBind('cpf', ftString, true, 0, 'CPF', '###.###.###-##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCPF)]
     edtCPF: TEdit;
 
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label9: TLabel;
 
-    [FieldJsonBind('cnpj'), FbIgnorePost, FbIgnorePut]
-     [FieldDataSetBind('cnpj', ftString, True, 0, 'CNPJ', '##.###.###/####-##;0;_', taLeftJustify)]
+    [FieldJsonBind('cnpj')]
+    [FieldDataSetBind('cnpj', ftString, true, 0, 'CNPJ', '##.###.###/####-##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCNPJ)]
     edtCNPJ: TEdit;
 

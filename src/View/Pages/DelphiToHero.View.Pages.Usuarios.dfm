@@ -84,6 +84,7 @@ inherited PageUsuarios: TPageUsuarios
                 Top = 24
                 Width = 322
                 Height = 21
+                Enabled = False
                 TabOrder = 0
               end
               object Label2: TLabel
@@ -203,7 +204,6 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Left = 15
               Padding.Right = 15
               TabOrder = 2
-              ExplicitLeft = 424
               object Label6: TLabel
                 Left = 15
                 Top = 0
