@@ -15,20 +15,19 @@ uses
   FireDAC.Comp.Client,
   FireDAC.Stan.StorageBin,
 
-
-
   DelphiToHero.Model.DAO.Interfaces,
   RESTRequest4D,
   Bind4D,
-   Vcl.Forms;
+  Vcl.Forms;
 
 type
   TDAOREST = class(TInterfacedObject, iDAOInterface)
     private
       FDMemTable: TFDMemTable;
       FBaseURL: String;
-      FForm : TForm;
+      FForm: TForm;
       FEndPoint, FPK, FOrder, FSort: String;
+      function PrepareGuuid(aValue: String): String;
     public
       constructor Create(aForm: TForm);
       destructor Destroy; override;
@@ -44,6 +43,8 @@ type
 
 implementation
 
+uses
+  System.SysUtils, System.JSON;
 
 { TDAOREST }
 
@@ -69,7 +70,9 @@ end;
 
 function TDAOREST.Delete: iDAOInterface;
 begin
-
+Result := Self;
+TRequest.New.BaseURL(FBaseURL + FEndPoint + '/' + PrepareGuuid(FDMemTable.FieldByName(FPK).AsString))
+  .Accept('application/json').Delete;
 end;
 
 destructor TDAOREST.Destroy;
@@ -80,12 +83,7 @@ end;
 
 function TDAOREST.Get: iDAOInterface;
 begin
-TRequest
-  .New
-    .BaseURL(FBaseURL + FEndPoint)
-      .Accept('application/json')
-    .DataSetAdapter(FDMemTable)
-.Get;
+TRequest.New.BaseURL(FBaseURL + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable).Get;
 end;
 
 class function TDAOREST.New(aForm: TForm): iDAOInterface;
@@ -95,13 +93,38 @@ Result := Self.Create(aForm);
 end;
 
 function TDAOREST.Post: iDAOInterface;
+var
+  aJson: TJsonObject;
 begin
+Result := Self;
+aJson := TBind4D.New.Form(FForm).FormToJson(fbPost);
+try
+  TRequest.New.BaseURL(FBaseURL + FEndPoint).Accept('application/json').AddBody(aJson.ToString).Post;
+finally
+  aJson.Free;
+end;
 
 end;
 
-function TDAOREST.Put: iDAOInterface;
+function TDAOREST.PrepareGuuid(aValue: String): String;
 begin
+Result := StringReplace(aValue, '{', '', [rfReplaceAll]);
+Result := StringReplace(Result, '}', '', [rfReplaceAll]);
+end;
 
+function TDAOREST.Put: iDAOInterface;
+var
+  aJson: TJsonObject;
+begin
+Result := Self;
+aJson := TBind4D.New.Form(FForm).FormToJson(fbPut);
+
+try
+  TRequest.New.BaseURL(FBaseURL + FEndPoint + '/' + PrepareGuuid(FDMemTable.FieldByName(FPK).AsString))
+    .Accept('application/json').AddBody(aJson.ToString).Put;
+finally
+  aJson.Free;
+end;
 end;
 
 end.

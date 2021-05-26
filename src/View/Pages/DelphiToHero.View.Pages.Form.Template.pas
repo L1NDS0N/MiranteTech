@@ -85,6 +85,7 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure cxButton7Click(Sender: TObject);
     procedure cxButton8Click(Sender: TObject);
+    procedure cxButton6Click(Sender: TObject);
     private
       FEndPoint: String;
       FPK: String;
@@ -132,6 +133,13 @@ TBind4D.New.Form(Self).ClearFieldForm;
 AlterListForm;
 end;
 
+procedure TFormTemplate.cxButton6Click(Sender: TObject);
+begin
+FDAO.Delete;
+GetEndPoint;
+AlterListForm;
+end;
+
 procedure TFormTemplate.cxButton7Click(Sender: TObject);
 begin
 AlterListForm;
@@ -143,9 +151,9 @@ var
 begin
 aJson := TBind4D.New.Form(Self).FormToJson(fbPost);
 try
-  TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').AddBody(aJson.ToString).Post;
+//  TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').AddBody(aJson.ToString).Post;
 finally
-  aJson.Free;
+//  aJson.Free;
 end;
 
 AlterListForm;

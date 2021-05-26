@@ -319,6 +319,7 @@ object FormTemplate: TFormTemplate
                 Font.Name = 'Tahoma'
                 Font.Style = [fsBold]
                 ParentFont = False
+                OnClick = cxButton6Click
               end
               object cxButton7: TcxButton
                 Left = 414
