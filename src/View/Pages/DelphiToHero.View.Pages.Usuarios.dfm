@@ -298,10 +298,4 @@ inherited PageUsuarios: TPageUsuarios
       end
     end
   end
-  inherited DataSource1: TDataSource
-    Left = 120
-  end
-  inherited FDMemTable1: TFDMemTable
-    Left = 124
-  end
 end
