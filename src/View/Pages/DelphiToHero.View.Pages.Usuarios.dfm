@@ -66,6 +66,7 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Right = 15
               Spacing = 5
               TabOrder = 1
+              VerticalPositioning = spvpFill
               object Label1: TLabel
                 Left = 15
                 Top = 0
@@ -204,6 +205,7 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Left = 15
               Padding.Right = 15
               TabOrder = 2
+              VerticalPositioning = spvpFill
               object Label6: TLabel
                 Left = 15
                 Top = 0

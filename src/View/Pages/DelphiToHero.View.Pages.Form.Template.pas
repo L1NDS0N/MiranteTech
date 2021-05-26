@@ -10,9 +10,14 @@ uses
   cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, cxButtons,
   Bind4D, Data.DB, Vcl.Grids, Vcl.DBGrids,
   DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels,
-  DelphiToHero.Model.DAO.Interfaces;
+  DelphiToHero.Model.DAO.Interfaces, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
+  FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
 
 type
+
+  TTypeOperation = (toNull, toPost, toPut);
+
   TFormTemplate = class(TForm, iRouter4DComponent)
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     pnlPrincipal: TPanel;
@@ -87,6 +92,7 @@ type
     procedure cxButton8Click(Sender: TObject);
     procedure cxButton6Click(Sender: TObject);
     private
+      FTypeOperation: TTypeOperation;
       FEndPoint: String;
       FPK: String;
       FTitle: String;
@@ -100,6 +106,8 @@ type
       procedure GetEndPoint;
       procedure AlterListForm;
       procedure FormatList;
+      procedure restOperationPut;
+      procedure restOperationPost;
     public
       { Public declarations }
   end;
@@ -129,6 +137,7 @@ end;
 
 procedure TFormTemplate.cxButton5Click(Sender: TObject);
 begin
+FTypeOperation := toPost;
 TBind4D.New.Form(Self).ClearFieldForm;
 AlterListForm;
 end;
@@ -138,36 +147,38 @@ begin
 FDAO.Delete;
 GetEndPoint;
 AlterListForm;
+FTypeOperation := toNull;
 end;
 
 procedure TFormTemplate.cxButton7Click(Sender: TObject);
 begin
 AlterListForm;
+FTypeOperation := toNull;
 end;
 
 procedure TFormTemplate.cxButton8Click(Sender: TObject);
-var
-  aJson: TJsonObject;
 begin
-aJson := TBind4D.New.Form(Self).FormToJson(fbPost);
-try
-//  TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').AddBody(aJson.ToString).Post;
-finally
-//  aJson.Free;
+case FTypeOperation of
+  toNull:
+    ;
+  toPost:
+    restOperationPost;
+  toPut:
+    restOperationPut;
 end;
 
-AlterListForm;
-GetEndPoint;
 end;
 
 procedure TFormTemplate.DBGrid1DblClick(Sender: TObject);
 begin
+FTypeOperation := toPut;
 TBind4D.New.Form(Self).BindDataSetToForm(FDAO.DataSet);
 pnlMainBodyDataForm.Visible := true;
 end;
 
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
+FTypeOperation := toNull;
 FDAO := TDAOREST.New(Self).DataSource(DataSource1);
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
 ApplyStyle;
@@ -197,6 +208,22 @@ end;
 function TFormTemplate.Render: TForm;
 begin
 Result := Self;
+end;
+
+procedure TFormTemplate.restOperationPost;
+begin
+FDAO.Post;
+GetEndPoint;
+AlterListForm;
+FTypeOperation := toNull;
+end;
+
+procedure TFormTemplate.restOperationPut;
+begin
+FDAO.Put;
+GetEndPoint;
+AlterListForm;
+FTypeOperation := toNull;
 end;
 
 procedure TFormTemplate.Unrender;
