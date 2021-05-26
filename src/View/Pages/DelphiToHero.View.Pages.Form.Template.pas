@@ -84,6 +84,10 @@ type
 
     procedure FormCreate(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure cxButton7Click(Sender: TObject);
+    procedure cxButton8Click(Sender: TObject);
     private
       FEndPoint: String;
       FPK: String;
@@ -96,7 +100,7 @@ type
       procedure Unrender;
       procedure GetEndPoint;
       procedure AlterListForm;
-    procedure FormatList;
+      procedure FormatList;
     public
       { Public declarations }
   end;
@@ -105,6 +109,9 @@ var
   FormTemplate: TFormTemplate;
 
 implementation
+
+uses
+  System.JSON;
 
 {$R *.dfm}
 { TFormTemplate }
@@ -123,20 +130,51 @@ end;
 
 procedure TFormTemplate.cxButton5Click(Sender: TObject);
 begin
+TBind4D.New.Form(Self).ClearFieldForm;
 AlterListForm;
+end;
+
+procedure TFormTemplate.cxButton7Click(Sender: TObject);
+begin
+AlterListForm;
+end;
+
+procedure TFormTemplate.cxButton8Click(Sender: TObject);
+var
+  aJson: TJsonObject;
+begin
+aJson := TBind4D.New.Form(Self).FormToJson(fbPost);
+try
+  TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').AddBody(aJson.ToString).Post;
+finally
+  aJson.Free;
+end;
+
+AlterListForm;
+GetEndPoint;
+end;
+
+procedure TFormTemplate.DBGrid1DblClick(Sender: TObject);
+begin
+TBind4D.New.Form(Self).BindDataSetToForm(FDMemTable1);
+pnlMainBodyDataForm.Visible := true;
 end;
 
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
 ApplyStyle;
+end;
+
+procedure TFormTemplate.FormResize(Sender: TObject);
+begin
 GetEndPoint;
 end;
 
 procedure TFormTemplate.GetEndPoint;
 begin
 TRequest.New.BaseURL('http://localhost:9000' + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable1).Get;
-  FormatList;
+FormatList;
 end;
 
 procedure TFormTemplate.AlterListForm;
@@ -146,7 +184,7 @@ end;
 
 procedure TFormTemplate.FormatList;
 begin
-  TBind4D.New.Form(Self).BindFormatListDataSet(FDMemTable1, DBGrid1);
+TBind4D.New.Form(Self).BindFormatListDataSet(FDMemTable1, DBGrid1);
 end;
 
 function TFormTemplate.Render: TForm;

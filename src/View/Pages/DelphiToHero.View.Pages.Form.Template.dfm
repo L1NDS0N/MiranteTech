@@ -13,6 +13,7 @@ object FormTemplate: TFormTemplate
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
+  OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
   object pnlPrincipal: TPanel
@@ -339,6 +340,7 @@ object FormTemplate: TFormTemplate
                 Font.Name = 'Tahoma'
                 Font.Style = [fsBold]
                 ParentFont = False
+                OnClick = cxButton7Click
               end
               object cxButton8: TcxButton
                 Left = 294
@@ -360,6 +362,7 @@ object FormTemplate: TFormTemplate
                 Font.Name = 'Tahoma'
                 Font.Style = [fsBold]
                 ParentFont = False
+                OnClick = cxButton8Click
               end
             end
           end
@@ -378,6 +381,7 @@ object FormTemplate: TFormTemplate
             TitleFont.Height = -11
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
+            OnDblClick = DBGrid1DblClick
           end
         end
       end
