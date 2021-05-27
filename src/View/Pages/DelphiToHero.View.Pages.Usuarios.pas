@@ -10,7 +10,8 @@ uses
   Data.DB, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.StorageBin, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.Grids,
-  Vcl.DBGrids, Vcl.WinXPanels, DelphiToHero.View.Styles.Color, Vcl.ComCtrls;
+  Vcl.DBGrids, Vcl.WinXPanels, DelphiToHero.View.Styles.Color, Vcl.ComCtrls, Bind4D.Types, Bind4D.Attributes,
+  Bind4D.Utils;
 
 type
 
@@ -32,7 +33,7 @@ type
     Label2: TLabel;
 
     [FieldJsonBind('name')]
-    [FieldDataSetBind('name', ftString, true, 0, 'Nome')]
+    [FieldDataSetBind('name', ftString, true, 30, 'Nome')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     edtName: TEdit;
 
@@ -40,15 +41,16 @@ type
     Label3: TLabel;
 
     [FieldJsonBind('phone')]
-    [FieldDataSetBind('phone', ftString, true, 0, 'Telefone', '!\(##\) #####-####;0;_')]
+    [FieldDataSetBind('phone', ftString, true, 12, 'Telefone', '!\(##\) #####-####;0;_')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCell)]
     edtTelefone: TEdit;
 
+    [FieldDataSetBind('idoccupation', ftString, false, 0, 'id da profissão')]
     [ComponentBindStyle(clBtnFace, FONT_H5, FONT_COLOR3, FONT_NAME)]
     Label4: TLabel;
 
     [FieldJsonBind('occupation')]
-    [FieldDataSetBind('occupation', ftString, true, 0, 'Profissão')]
+    [FieldDataSetBind('occupation', ftString, true, 10, 'Profissão')]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     edtOcupacao: TEdit;
 
@@ -56,7 +58,7 @@ type
     Label5: TLabel;
 
     [FieldJsonBind('balance')]
-    [FieldDataSetBind('balance', ftCurrency, true, 0, 'Saldo', 'R$ ###,###,##0.00', taLeftJustify)]
+    [FieldDataSetBind('balance', ftCurrency, true, 10, 'Saldo', 'R$ ###,###,##0.00', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCoin)]
     edtSaldo: TEdit;
 
@@ -64,7 +66,7 @@ type
     Label6: TLabel;
 
     [FieldJsonBind('birthdate')]
-    [FieldDataSetBind('birthdate', ftDate, true, 0, 'Nascimento', '##/##/####;0;_', taLeftJustify)]
+    [FieldDataSetBind('birthdate', ftDate, true, 8, 'Nascimento', '##/##/####;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     dateBirth: TDateTimePicker;
 
@@ -72,7 +74,7 @@ type
     Label7: TLabel;
 
     [FieldJsonBind('lasttransaction')]
-    [FieldDataSetBind('lasttransaction', ftTime, true, 0, 'Últ. transação', '##:##:##;0;_', taLeftJustify)]
+    [FieldDataSetBind('lasttransaction', ftTime, true, 8, 'Últ. transação', '##:##:##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME)]
     TimeTrans: TDateTimePicker;
 
@@ -80,7 +82,7 @@ type
     Label8: TLabel;
 
     [FieldJsonBind('cpf')]
-    [FieldDataSetBind('cpf', ftString, true, 0, 'CPF', '###.###.###-##;0;_', taLeftJustify)]
+    [FieldDataSetBind('cpf', ftString, true, 10, 'CPF', '###.###.###-##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCPF)]
     edtCPF: TEdit;
 
@@ -88,11 +90,19 @@ type
     Label9: TLabel;
 
     [FieldJsonBind('cnpj')]
-    [FieldDataSetBind('cnpj', ftString, true, 0, 'CNPJ', '##.###.###/####-##;0;_', taLeftJustify)]
+    [FieldDataSetBind('cnpj', ftString, true, 14, 'CNPJ', '##.###.###/####-##;0;_', taLeftJustify)]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCNPJ)]
     edtCNPJ: TEdit;
 
+    [FieldDataSetBind('picture', ftString, false, 10, 'Foto')]
+    [ComponentBindStyle(COLOR_BACKGROUND, FONT_H5, FONT_COLOR3, FONT_NAME, teCNPJ)]
+    Image1: TImage;
+
+    procedure FormCreate(Sender: TObject);
+
     private
+    protected
+
       { Private declarations }
     public
       { Public declarations }
@@ -104,5 +114,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TPageUsuarios.FormCreate(Sender: TObject);
+begin
+inherited;
+TBind4D.New.Form(Self).SetStyleComponents;
+
+end;
 
 end.

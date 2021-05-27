@@ -8,7 +8,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Router4D.Interfaces,
   Vcl.StdCtrls, System.ImageList, Vcl.ImgList, Vcl.Buttons, cxGraphics,
   cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, cxButtons,
-  Bind4D, Data.DB, Vcl.Grids, Vcl.DBGrids,
+  Bind4D, Bind4D.Types, Bind4D.Attributes, Data.DB, Vcl.Grids, Vcl.DBGrids,
   DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels,
   DelphiToHero.Model.DAO.Interfaces, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
@@ -214,6 +214,7 @@ procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
 FTypeOperation := toNull;
 FDAO := TDAOREST.New(Self).DataSource(DataSource1);
+TBind4D.New.Form(Self).SetStyleComponents;
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
 ApplyStyle;
 end;

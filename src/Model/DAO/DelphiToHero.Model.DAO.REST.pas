@@ -19,6 +19,7 @@ uses
   Bind4D, FireDAC.Comp.Client, System.Generics.Collections;
 
 type
+
   TDAOREST = class(TInterfacedObject, iDAOInterface)
     private
       FDMemTable: TFDMemTable;
@@ -46,7 +47,8 @@ type
 implementation
 
 uses
-  System.SysUtils, System.JSON;
+  System.SysUtils, System.JSON,
+  Bind4D.Types, Bind4D.Attributes;
 
 { TDAOREST }
 
@@ -92,23 +94,23 @@ inherited;
 end;
 
 function TDAOREST.Get: iDAOInterface;
- var
- aURL: String;
+var
+  aURL: String;
 
 begin
 
- aURL := FBaseURL + FEndPoint + '?';
- if FParamList.Count > 0 then
- begin
- for var Param in FParamList do
- begin
- aURL := aURL + Param.Key + '=' + Param.Value + '&';
- end;
- end;
- aURL := Copy(aURL, 0, Length(aURL) - 1);
- TRequest.New.BaseURL(aURL).Accept('application/json').DataSetAdapter(FDMemTable).Get;
+aURL := FBaseURL + FEndPoint + '?';
+if FParamList.Count > 0 then
+  begin
+  for var Param in FParamList do
+    begin
+    aURL := aURL + Param.Key + '=' + Param.Value + '&';
+    end;
+  end;
+aURL := Copy(aURL, 0, Length(aURL) - 1);
+TRequest.New.BaseURL(aURL).Accept('application/json').DataSetAdapter(FDMemTable).Get;
 
- FParamList.Clear;
+FParamList.Clear;
 end;
 
 class function TDAOREST.New(aForm: TForm): iDAOInterface;

@@ -49,7 +49,7 @@ object FormTemplate: TFormTemplate
           Left = 0
           Top = 0
           Width = 32
-          Height = 110
+          Height = 13
           Align = alLeft
           Caption = 'Titulo'
           Font.Charset = DEFAULT_CHARSET
@@ -59,7 +59,6 @@ object FormTemplate: TFormTemplate
           Font.Style = [fsBold]
           ParentFont = False
           Layout = tlCenter
-          ExplicitHeight = 13
         end
         object cxButton1: TcxButton
           Left = 704
@@ -233,11 +232,10 @@ object FormTemplate: TFormTemplate
               object lblSearch: TLabel
                 Left = 0
                 Top = 15
-                Width = 360
+                Width = 46
                 Height = 13
                 Align = alTop
                 Caption = 'Pesquisar'
-                ExplicitWidth = 46
               end
               object edtSearch: TEdit
                 Left = 0

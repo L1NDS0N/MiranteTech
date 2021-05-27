@@ -3,8 +3,24 @@ inherited PageUsuarios: TPageUsuarios
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlPrincipal: TPanel
+    inherited pnlTop: TPanel
+      inherited pnlTopBody: TPanel
+        inherited lblTItle: TLabel
+          Height = 110
+        end
+      end
+    end
     inherited pnlMain: TPanel
       inherited pnlMainBody: TPanel
+        inherited pnlMainBodyTop: TPanel
+          inherited pnlMainTopBodyMenu: TPanel
+            inherited pnlMainTopSearch: TPanel
+              inherited lblSearch: TLabel
+                Width = 360
+              end
+            end
+          end
+        end
         inherited pnlMainBodyData: TPanel
           inherited pnlMainBodyDataForm: TPanel
             Left = 104
@@ -60,6 +76,12 @@ inherited PageUsuarios: TPageUsuarios
                 end
                 item
                   Control = edtSaldo
+                end
+                item
+                  Control = Label7
+                end
+                item
+                  Control = TimeTrans
                 end>
               HorizontalPositioning = sphpFill
               Padding.Left = 15
@@ -168,6 +190,29 @@ inherited PageUsuarios: TPageUsuarios
                 Height = 21
                 TabOrder = 4
               end
+              object Label7: TLabel
+                Left = 15
+                Top = 250
+                Width = 322
+                Height = 19
+                Caption = #218'ltima transa'#231#227'o'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -16
+                Font.Name = 'Tahoma'
+                Font.Style = []
+                ParentFont = False
+              end
+              object TimeTrans: TDateTimePicker
+                Left = 15
+                Top = 274
+                Width = 322
+                Height = 21
+                Date = 44341.000000000000000000
+                Time = 0.705436030089913400
+                Kind = dtkTime
+                TabOrder = 5
+              end
             end
             object StackPanel2: TStackPanel
               Left = 377
@@ -178,16 +223,13 @@ inherited PageUsuarios: TPageUsuarios
               BevelOuter = bvNone
               ControlCollection = <
                 item
+                  Control = Image1
+                end
+                item
                   Control = Label6
                 end
                 item
                   Control = dateBirth
-                end
-                item
-                  Control = Label7
-                end
-                item
-                  Control = TimeTrans
                 end
                 item
                   Control = Label8
@@ -206,9 +248,15 @@ inherited PageUsuarios: TPageUsuarios
               Padding.Right = 15
               TabOrder = 2
               VerticalPositioning = spvpFill
-              object Label6: TLabel
+              object Image1: TImage
                 Left = 15
                 Top = 0
+                Width = 317
+                Height = 210
+              end
+              object Label6: TLabel
+                Left = 15
+                Top = 212
                 Width = 317
                 Height = 19
                 Caption = 'Nascimento'
@@ -221,39 +269,16 @@ inherited PageUsuarios: TPageUsuarios
               end
               object dateBirth: TDateTimePicker
                 Left = 15
-                Top = 21
+                Top = 233
                 Width = 317
                 Height = 21
                 Date = 44341.000000000000000000
                 Time = 0.705436030089913400
                 TabOrder = 0
               end
-              object Label7: TLabel
-                Left = 15
-                Top = 44
-                Width = 317
-                Height = 19
-                Caption = #218'ltima transa'#231#227'o'
-                Font.Charset = DEFAULT_CHARSET
-                Font.Color = clWindowText
-                Font.Height = -16
-                Font.Name = 'Tahoma'
-                Font.Style = []
-                ParentFont = False
-              end
-              object TimeTrans: TDateTimePicker
-                Left = 15
-                Top = 65
-                Width = 317
-                Height = 21
-                Date = 44341.000000000000000000
-                Time = 0.705436030089913400
-                Kind = dtkTime
-                TabOrder = 1
-              end
               object Label8: TLabel
                 Left = 15
-                Top = 88
+                Top = 256
                 Width = 317
                 Height = 19
                 Caption = 'CPF'
@@ -266,14 +291,14 @@ inherited PageUsuarios: TPageUsuarios
               end
               object edtCPF: TEdit
                 Left = 15
-                Top = 109
+                Top = 277
                 Width = 317
                 Height = 21
-                TabOrder = 2
+                TabOrder = 1
               end
               object Label9: TLabel
                 Left = 15
-                Top = 132
+                Top = 300
                 Width = 317
                 Height = 19
                 Caption = 'CNPJ'
@@ -286,10 +311,10 @@ inherited PageUsuarios: TPageUsuarios
               end
               object edtCNPJ: TEdit
                 Left = 15
-                Top = 153
+                Top = 321
                 Width = 317
                 Height = 21
-                TabOrder = 3
+                TabOrder = 2
               end
             end
           end
