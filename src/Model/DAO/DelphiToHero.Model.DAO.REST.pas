@@ -92,19 +92,23 @@ inherited;
 end;
 
 function TDAOREST.Get: iDAOInterface;
-var
-  aURL: String;
-begin
-aURL := FBaseURL + FEndPoint + '?';
-if FParamList.Count > 0 then
-  begin
-  for var Param in FParamList do
-    begin
-    aURL := aURL + Param.Key + '=' + Param.Value + '&';
-    end;
+ var
+ aURL: String;
 
-  end;
-TRequest.New.BaseURL(FBaseURL + FEndPoint).Accept('application/json').DataSetAdapter(FDMemTable).Get;
+begin
+
+ aURL := FBaseURL + FEndPoint + '?';
+ if FParamList.Count > 0 then
+ begin
+ for var Param in FParamList do
+ begin
+ aURL := aURL + Param.Key + '=' + Param.Value + '&';
+ end;
+ end;
+ aURL := Copy(aURL, 0, Length(aURL) - 1);
+ TRequest.New.BaseURL(aURL).Accept('application/json').DataSetAdapter(FDMemTable).Get;
+
+ FParamList.Clear;
 end;
 
 class function TDAOREST.New(aForm: TForm): iDAOInterface;

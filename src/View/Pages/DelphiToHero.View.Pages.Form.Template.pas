@@ -91,6 +91,9 @@ type
     procedure cxButton7Click(Sender: TObject);
     procedure cxButton8Click(Sender: TObject);
     procedure cxButton6Click(Sender: TObject);
+    procedure DBGrid1TitleClick(Column: TColumn);
+    procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
     private
       FTypeOperation: TTypeOperation;
       FEndPoint: String;
@@ -176,6 +179,37 @@ TBind4D.New.Form(Self).BindDataSetToForm(FDAO.DataSet);
 pnlMainBodyDataForm.Visible := true;
 end;
 
+procedure TFormTemplate.DBGrid1KeyPress(Sender: TObject; var Key: Char);
+begin
+if Key = #$D then
+  begin
+  FTypeOperation := toPut;
+  TBind4D.New.Form(Self).BindDataSetToForm(FDAO.DataSet);
+  AlterListForm;
+  end;
+end;
+
+procedure TFormTemplate.DBGrid1TitleClick(Column: TColumn);
+begin
+FDAO.AddParam('sort', Column.Field.FullName).AddParam('order', FOrder).Get;
+if FOrder = 'asc' then
+  FOrder := 'desc'
+else
+  FOrder := 'asc';
+end;
+
+procedure TFormTemplate.edtSearchKeyPress(Sender: TObject; var Key: Char);
+begin
+
+if Key = #$D then
+  begin
+  FDAO.AddParam('sort', FSort).AddParam('order', FOrder).AddParam('searchfields',
+    TBind4D.New.Form(Self).GetFieldsByType(fbPost)).AddParam('searchvalue', edtSearch.Text).Get;
+  DBGrid1.SetFocus;
+  FormatList;
+  end;
+end;
+
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
 FTypeOperation := toNull;
@@ -191,10 +225,7 @@ end;
 
 procedure TFormTemplate.GetEndPoint;
 begin
-FDAO
-  .AddParam('sort', FSort)
-  .AddParam('order', FOrder)
-.Get;
+FDAO.AddParam('sort', FSort).AddParam('order', FOrder).Get;
 FormatList;
 end;
 

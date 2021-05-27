@@ -253,7 +253,8 @@ object FormTemplate: TFormTemplate
                 Font.Style = []
                 ParentFont = False
                 TabOrder = 0
-                TextHint = 'Descreva a sua pesquisa'
+                TextHint = 'Descreva a sua pesquisa e pressione enter'
+                OnKeyPress = edtSearchKeyPress
               end
               object pnlMainTopSearchLine: TPanel
                 Left = 0
@@ -383,6 +384,8 @@ object FormTemplate: TFormTemplate
             TitleFont.Name = 'Tahoma'
             TitleFont.Style = []
             OnDblClick = DBGrid1DblClick
+            OnKeyPress = DBGrid1KeyPress
+            OnTitleClick = DBGrid1TitleClick
           end
         end
       end
