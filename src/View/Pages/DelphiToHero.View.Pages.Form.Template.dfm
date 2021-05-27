@@ -49,7 +49,7 @@ object FormTemplate: TFormTemplate
           Left = 0
           Top = 0
           Width = 32
-          Height = 13
+          Height = 110
           Align = alLeft
           Caption = 'Titulo'
           Font.Charset = DEFAULT_CHARSET
@@ -59,6 +59,7 @@ object FormTemplate: TFormTemplate
           Font.Style = [fsBold]
           ParentFont = False
           Layout = tlCenter
+          ExplicitHeight = 13
         end
         object cxButton1: TcxButton
           Left = 704
@@ -232,10 +233,11 @@ object FormTemplate: TFormTemplate
               object lblSearch: TLabel
                 Left = 0
                 Top = 15
-                Width = 46
+                Width = 360
                 Height = 13
                 Align = alTop
                 Caption = 'Pesquisar'
+                ExplicitWidth = 46
               end
               object edtSearch: TEdit
                 Left = 0
@@ -271,18 +273,18 @@ object FormTemplate: TFormTemplate
           Left = 0
           Top = 110
           Width = 824
-          Height = 548
+          Height = 507
           Align = alClient
           BevelOuter = bvNone
           FullRepaint = False
           Padding.Top = 10
-          Padding.Bottom = 50
+          Padding.Bottom = 10
           TabOrder = 1
           object pnlMainBodyDataForm: TPanel
             Left = 240
             Top = 10
             Width = 584
-            Height = 488
+            Height = 487
             Align = alRight
             BevelOuter = bvNone
             Padding.Left = 25
@@ -291,7 +293,7 @@ object FormTemplate: TFormTemplate
             TabOrder = 0
             object pnlMainCadastroButton: TPanel
               Left = 25
-              Top = 376
+              Top = 375
               Width = 534
               Height = 112
               Align = alBottom
@@ -370,7 +372,7 @@ object FormTemplate: TFormTemplate
             Left = 0
             Top = 10
             Width = 240
-            Height = 488
+            Height = 487
             Align = alClient
             BorderStyle = bsNone
             DataSource = DataSource1
@@ -384,6 +386,73 @@ object FormTemplate: TFormTemplate
             OnDblClick = DBGrid1DblClick
             OnKeyPress = DBGrid1KeyPress
             OnTitleClick = DBGrid1TitleClick
+          end
+        end
+        object pnlPaginate: TPanel
+          Left = 0
+          Top = 617
+          Width = 824
+          Height = 41
+          Align = alBottom
+          BevelOuter = bvNone
+          ParentBackground = False
+          TabOrder = 2
+          object lblPagina: TLabel
+            Left = 692
+            Top = 0
+            Width = 32
+            Height = 41
+            Align = alRight
+            Alignment = taCenter
+            Caption = 'P'#225'gina'
+            Layout = tlCenter
+            ExplicitLeft = 647
+            ExplicitTop = -4
+          end
+          object cxButton9: TcxButton
+            AlignWithMargins = True
+            Left = 777
+            Top = 3
+            Width = 44
+            Height = 35
+            Align = alRight
+            Caption = '->'
+            OptionsImage.ImageIndex = 6
+            OptionsImage.Layout = blGlyphTop
+            SpeedButtonOptions.CanBeFocused = False
+            SpeedButtonOptions.Flat = True
+            SpeedButtonOptions.Transparent = True
+            TabOrder = 0
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Fira Code SemiBold'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = cxButton9Click
+          end
+          object cxButton10: TcxButton
+            AlignWithMargins = True
+            Left = 727
+            Top = 3
+            Width = 44
+            Height = 35
+            Align = alRight
+            Caption = '<-'
+            OptionsImage.ImageIndex = 6
+            OptionsImage.Layout = blGlyphTop
+            SpeedButtonOptions.CanBeFocused = False
+            SpeedButtonOptions.Flat = True
+            SpeedButtonOptions.Transparent = True
+            TabOrder = 1
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -16
+            Font.Name = 'Fira Code SemiBold'
+            Font.Style = [fsBold]
+            ParentFont = False
+            OnClick = cxButton10Click
+            ExplicitLeft = 695
           end
         end
       end

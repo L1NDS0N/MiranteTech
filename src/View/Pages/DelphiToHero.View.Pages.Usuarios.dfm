@@ -3,24 +3,8 @@ inherited PageUsuarios: TPageUsuarios
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnlPrincipal: TPanel
-    inherited pnlTop: TPanel
-      inherited pnlTopBody: TPanel
-        inherited lblTItle: TLabel
-          Height = 110
-        end
-      end
-    end
     inherited pnlMain: TPanel
       inherited pnlMainBody: TPanel
-        inherited pnlMainBodyTop: TPanel
-          inherited pnlMainTopBodyMenu: TPanel
-            inherited pnlMainTopSearch: TPanel
-              inherited lblSearch: TLabel
-                Width = 360
-              end
-            end
-          end
-        end
         inherited pnlMainBodyData: TPanel
           inherited pnlMainBodyDataForm: TPanel
             Left = 104
@@ -43,7 +27,7 @@ inherited PageUsuarios: TPageUsuarios
               Left = 25
               Top = 0
               Width = 352
-              Height = 376
+              Height = 375
               Align = alLeft
               BevelOuter = bvNone
               ControlCollection = <
@@ -218,7 +202,7 @@ inherited PageUsuarios: TPageUsuarios
               Left = 377
               Top = 0
               Width = 347
-              Height = 376
+              Height = 375
               Align = alLeft
               BevelOuter = bvNone
               ControlCollection = <
@@ -320,6 +304,14 @@ inherited PageUsuarios: TPageUsuarios
           end
           inherited DBGrid1: TDBGrid
             Width = 104
+          end
+        end
+        inherited pnlPaginate: TPanel
+          inherited lblPagina: TLabel
+            ExplicitLeft = 396
+          end
+          inherited cxButton10: TcxButton
+            ExplicitLeft = 727
           end
         end
       end

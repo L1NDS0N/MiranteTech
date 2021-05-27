@@ -83,6 +83,10 @@ type
     cxButton6: TcxButton;
     cxButton7: TcxButton;
     cxButton8: TcxButton;
+    pnlPaginate: TPanel;
+    cxButton9: TcxButton;
+    cxButton10: TcxButton;
+    lblPagina: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
@@ -94,6 +98,8 @@ type
     procedure DBGrid1TitleClick(Column: TColumn);
     procedure edtSearchKeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
+    procedure cxButton10Click(Sender: TObject);
+    procedure cxButton9Click(Sender: TObject);
     private
       FTypeOperation: TTypeOperation;
       FEndPoint: String;
@@ -102,6 +108,7 @@ type
       FOrder: String;
       FSort: String;
       FDAO: iDAOInterface;
+      FPage: Integer;
       { Private declarations }
       procedure ApplyStyle;
       function Render: TForm;
@@ -138,6 +145,15 @@ DBGrid1.TitleFont.Color := FONT_COLOR3;
 
 end;
 
+procedure TFormTemplate.cxButton10Click(Sender: TObject);
+begin
+if FDAO.Page > 1 then
+  begin
+  FPage := FDAO.Page - 1;
+  GetEndPoint;
+  end;
+end;
+
 procedure TFormTemplate.cxButton5Click(Sender: TObject);
 begin
 FTypeOperation := toPost;
@@ -172,6 +188,15 @@ end;
 
 end;
 
+procedure TFormTemplate.cxButton9Click(Sender: TObject);
+begin
+if FDAO.Page < FDAO.Pages then
+  begin
+  FPage := FDAO.Page + 1;
+  GetEndPoint;
+  end;
+end;
+
 procedure TFormTemplate.DBGrid1DblClick(Sender: TObject);
 begin
 FTypeOperation := toPut;
@@ -191,7 +216,7 @@ end;
 
 procedure TFormTemplate.DBGrid1TitleClick(Column: TColumn);
 begin
-FDAO.AddParam('sort', Column.Field.FullName).AddParam('order', FOrder).Get;
+FDAO.AddParam('sort', Column.Field.FullName).AddParam('order', FOrder).Page(1).Get;
 if FOrder = 'asc' then
   FOrder := 'desc'
 else
@@ -204,7 +229,7 @@ begin
 if Key = #$D then
   begin
   FDAO.AddParam('sort', FSort).AddParam('order', FOrder).AddParam('searchfields',
-    TBind4D.New.Form(Self).GetFieldsByType(fbPost)).AddParam('searchvalue', edtSearch.Text).Get;
+    TBind4D.New.Form(Self).GetFieldsByType(fbPost)).AddParam('searchvalue', edtSearch.Text).Page(1).Get;
   DBGrid1.SetFocus;
   FormatList;
   end;
@@ -212,6 +237,7 @@ end;
 
 procedure TFormTemplate.FormCreate(Sender: TObject);
 begin
+FPage := 1;
 FTypeOperation := toNull;
 FDAO := TDAOREST.New(Self).DataSource(DataSource1);
 TBind4D.New.Form(Self).SetStyleComponents;
@@ -226,7 +252,7 @@ end;
 
 procedure TFormTemplate.GetEndPoint;
 begin
-FDAO.AddParam('sort', FSort).AddParam('order', FOrder).Get;
+FDAO.AddParam('sort', FSort).AddParam('order', FOrder).Page(FPage).Get;
 FormatList;
 end;
 
@@ -238,6 +264,7 @@ end;
 procedure TFormTemplate.FormatList;
 begin
 TBind4D.New.Form(Self).BindFormatListDataSet(FDAO.DataSet, DBGrid1);
+lblPagina.Caption := 'Página '+ FDAO.Page.ToString + ' de '+ FDAO.Pages.ToString;
 end;
 
 function TFormTemplate.Render: TForm;
