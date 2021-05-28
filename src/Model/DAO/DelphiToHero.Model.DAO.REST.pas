@@ -123,20 +123,23 @@ if FParamList.Count > 0 then
     aURL := aURL + Param.Key + '=' + Param.Value + '&';
     end;
   end;
-aURL := aURL + 'limit=' + IntToStr(3) + '&page=' + IntToStr(FPage);
+aURL := aURL + 'limit=' + IntToStr(FLimit) + '&page=' + IntToStr(FPage);
 
-aResult := TRequest.New.BaseURL(aURL).Accept('application/json')
-  .AddHeader('X-Paginate', 'true').Get.Content;
+aResult := TRequest.New.BaseURL(aURL).Accept('application/json').AddHeader('X-Paginate', 'true').Get.Content;
 
 aJsonResult := TJsonObject.ParseJSONValue(aResult) as TJsonObject;
 
 try
+  FDMemTable.Close;
+  FDMemTable.DisableControls;
+
   FTotal := aJsonResult.GetValue<Integer>('total');
   FLimit := aJsonResult.GetValue<Integer>('limit');
   FPage := aJsonResult.GetValue<Integer>('page');
   FPages := aJsonResult.GetValue<Integer>('pages');
 
   FDMemTable.LoadFromJSON(aJsonResult.GetValue<TJSONArray>('docs'), False);
+  FDMemTable.EnableControls;
 finally
   aJsonResult.Free;
 end;
