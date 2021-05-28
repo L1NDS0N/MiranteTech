@@ -224,12 +224,15 @@ else
 end;
 
 procedure TFormTemplate.edtSearchKeyPress(Sender: TObject; var Key: Char);
+var
+  fieldtosearch: string;
 begin
+fieldtosearch := StringReplace(TBind4D.New.Form(Self).GetFieldsByType(fbGet), 'guuid,', '', [rfReplaceAll]);
 
 if Key = #$D then
   begin
-  FDAO.AddParam('sort', FSort).AddParam('order', FOrder).AddParam('searchfields',
-    TBind4D.New.Form(Self).GetFieldsByType(fbPost)).AddParam('searchvalue', edtSearch.Text).Page(1).Get;
+  FDAO.AddParam('sort', FSort).AddParam('order', FOrder).AddParam('searchfields', fieldtosearch)
+    .AddParam('searchvalue', edtSearch.Text).Page(1).Get;
   DBGrid1.SetFocus;
   FormatList;
   end;
@@ -264,7 +267,7 @@ end;
 procedure TFormTemplate.FormatList;
 begin
 TBind4D.New.Form(Self).BindFormatListDataSet(FDAO.DataSet, DBGrid1);
-lblPagina.Caption := 'Página '+ FDAO.Page.ToString + ' de '+ FDAO.Pages.ToString;
+lblPagina.Caption := 'Página ' + FDAO.Page.ToString + ' de ' + FDAO.Pages.ToString;
 end;
 
 function TFormTemplate.Render: TForm;
