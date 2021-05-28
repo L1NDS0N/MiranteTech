@@ -13,7 +13,6 @@ object FormTemplate: TFormTemplate
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
-  OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
   object pnlPrincipal: TPanel
@@ -198,6 +197,7 @@ object FormTemplate: TFormTemplate
               Font.Name = 'Tahoma'
               Font.Style = [fsBold]
               ParentFont = False
+              OnClick = cxButton4Click
             end
             object cxButton5: TcxButton
               Left = 0
@@ -406,8 +406,7 @@ object FormTemplate: TFormTemplate
             Alignment = taCenter
             Caption = 'P'#225'gina'
             Layout = tlCenter
-            ExplicitLeft = 647
-            ExplicitTop = -4
+            ExplicitHeight = 13
           end
           object cxButton9: TcxButton
             AlignWithMargins = True
@@ -452,7 +451,6 @@ object FormTemplate: TFormTemplate
             Font.Style = [fsBold]
             ParentFont = False
             OnClick = cxButton10Click
-            ExplicitLeft = 695
           end
         end
       end

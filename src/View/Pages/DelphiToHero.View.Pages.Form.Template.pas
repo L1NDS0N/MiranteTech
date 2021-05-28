@@ -63,6 +63,7 @@ type
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H6, COLOR_BACKGROUND_TOP, FONT_NAME)]
     edtSearch: TEdit;
 
+    [AdjustResponsive]
     [ComponentBindStyle(COLOR_BACKGROUND, FONT_H6, FONT_COLOR4, FONT_NAME2)]
     DBGrid1: TDBGrid;
 
@@ -90,7 +91,6 @@ type
 
     procedure FormCreate(Sender: TObject);
     procedure cxButton5Click(Sender: TObject);
-    procedure FormResize(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure cxButton7Click(Sender: TObject);
     procedure cxButton8Click(Sender: TObject);
@@ -100,6 +100,7 @@ type
     procedure DBGrid1KeyPress(Sender: TObject; var Key: Char);
     procedure cxButton10Click(Sender: TObject);
     procedure cxButton9Click(Sender: TObject);
+    procedure cxButton4Click(Sender: TObject);
     private
       FTypeOperation: TTypeOperation;
       FEndPoint: String;
@@ -154,6 +155,11 @@ if FDAO.Page > 1 then
   end;
 end;
 
+procedure TFormTemplate.cxButton4Click(Sender: TObject);
+begin
+GetEndPoint;
+end;
+
 procedure TFormTemplate.cxButton5Click(Sender: TObject);
 begin
 FTypeOperation := toPost;
@@ -173,6 +179,7 @@ procedure TFormTemplate.cxButton7Click(Sender: TObject);
 begin
 AlterListForm;
 FTypeOperation := toNull;
+FormatList;
 end;
 
 procedure TFormTemplate.cxButton8Click(Sender: TObject);
@@ -231,6 +238,7 @@ fieldtosearch := StringReplace(TBind4D.New.Form(Self).GetFieldsByType(fbGet), 'g
 
 if Key = #$D then
   begin
+  Key := #$0;
   FDAO.AddParam('sort', FSort).AddParam('order', FOrder).AddParam('searchfields', fieldtosearch)
     .AddParam('searchvalue', edtSearch.Text).Page(1).Get;
   DBGrid1.SetFocus;
@@ -246,10 +254,6 @@ FDAO := TDAOREST.New(Self).DataSource(DataSource1);
 TBind4D.New.Form(Self).SetStyleComponents;
 TBind4D.New.Form(Self).BindFormDefault(FTitle).BindFormRest(FEndPoint, FPK, FSort, FOrder).SetStyleComponents;
 ApplyStyle;
-end;
-
-procedure TFormTemplate.FormResize(Sender: TObject);
-begin
 GetEndPoint;
 end;
 
@@ -266,7 +270,8 @@ end;
 
 procedure TFormTemplate.FormatList;
 begin
-TBind4D.New.Form(Self).BindFormatListDataSet(FDAO.DataSet, DBGrid1);
+
+TBind4D.New.Form(Self).BindFormatListDataSet(FDAO.DataSet, DBGrid1).ResponsiveAdjustment;
 lblPagina.Caption := 'Página ' + FDAO.Page.ToString + ' de ' + FDAO.Pages.ToString;
 end;
 

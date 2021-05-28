@@ -123,6 +123,7 @@ if FParamList.Count > 0 then
     aURL := aURL + Param.Key + '=' + Param.Value + '&';
     end;
   end;
+
 aURL := aURL + 'limit=' + IntToStr(FLimit) + '&page=' + IntToStr(FPage);
 
 aResult := TRequest.New.BaseURL(aURL).Accept('application/json').AddHeader('X-Paginate', 'true').Get.Content;
