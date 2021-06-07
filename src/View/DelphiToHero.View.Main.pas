@@ -4,7 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Buttons,
+  Bind4D,
+  Bind4D.Attributes,
+  Bind4D.Types;
 
 type
   TformPrincipal = class(TForm)
@@ -14,7 +17,9 @@ type
     pnlTop: TPanel;
     pnlPrincipal: TPanel;
     pnlLogo: TPanel;
+    [ImageAttribute('ico_menu')]
     btnPrincipal: TSpeedButton;
+    [ImageAttribute('ico_usuario')]
     btnUsuarios: TSpeedButton;
     procedure FormCreate(Sender: TObject);
     procedure btnUsuariosClick(Sender: TObject);
@@ -52,6 +57,7 @@ procedure TformPrincipal.FormCreate(Sender: TObject);
 begin
 ApplyStyle;
 TRouter4D.Render<TPagePrincipal>.SetElement(pnlPrincipal, pnlMain);
+TBind4D.New.Form(Self).SetImageComponents.SetStyleComponents;
 end;
 
 procedure TformPrincipal.ApplyStyle;

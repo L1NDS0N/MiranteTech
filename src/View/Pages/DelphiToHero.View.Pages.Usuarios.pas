@@ -96,11 +96,12 @@ type
     [FieldJsonBind('picture')]
     [FieldDataSetBind('picture', ftString, false)]
     //[S3Storage('jpg', 'image/jpeg')]
-    //[ImageAttribute('JpgImage_1')]
+    [ImageAttribute('img_genericuser')]
     Image1: TImage;
     Label1: TLabel;
 
     procedure FormCreate(Sender: TObject);
+    procedure Image1DblClick(Sender: TObject);
 
     private
     protected
@@ -120,8 +121,22 @@ implementation
 procedure TPageUsuarios.FormCreate(Sender: TObject);
 begin
 inherited;
-TBind4D.New.Form(Self).SetStyleComponents;
+TBind4D.New.Form(Self).SetStyleComponents.SetImageComponents;
 
+end;
+
+procedure TPageUsuarios.Image1DblClick(Sender: TObject);
+begin
+  inherited;
+  with TOpenDialog.Create(Self) do
+  try
+    Caption := 'Escolha uma imagem de perfil';
+    Options := [ofPathMustExist, ofFileMustExist];
+    if Execute then
+      Image1.Picture.LoadFromFile(FileName);
+  finally
+    Free;
+  end;
 end;
 
 end.

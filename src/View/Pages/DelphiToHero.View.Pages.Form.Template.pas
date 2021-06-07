@@ -3,11 +3,26 @@ unit DelphiToHero.View.Pages.Form.Template;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Router4D.Interfaces,
-  Vcl.StdCtrls, System.ImageList, Vcl.ImgList, Vcl.Buttons, cxGraphics,
-  cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus, cxButtons,
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
+  Router4D.Interfaces,
+  Vcl.StdCtrls,
+  System.ImageList,
+    Vcl.ImgList,
+     Vcl.Buttons,
+      cxGraphics,
+
+  cxLookAndFeels,
+   cxLookAndFeelPainters,
+    Vcl.Menus, cxButtons,
   Bind4D, Bind4D.Types, Bind4D.Attributes, Data.DB, Vcl.Grids, Vcl.DBGrids,
   DelphiToHero.View.Styles.Color, RESTRequest4D, Vcl.WinXPanels,
   DelphiToHero.Model.DAO.Interfaces, FireDAC.Stan.Intf, FireDAC.Stan.Option,
@@ -179,7 +194,6 @@ procedure TFormTemplate.cxButton7Click(Sender: TObject);
 begin
 AlterListForm;
 FTypeOperation := toNull;
-FormatList;
 end;
 
 procedure TFormTemplate.cxButton8Click(Sender: TObject);
